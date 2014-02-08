@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */; };
+		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
+		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
+		BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054818A68F95004E0C37 /* WMGridView.m */; };
+		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
+		BEF9105C1882C16500F50441 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105B1882C16500F50441 /* CoreGraphics.framework */; };
+		BEF9105E1882C16500F50441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105D1882C16500F50441 /* UIKit.framework */; };
+		BEF910641882C16500F50441 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEF910621882C16500F50441 /* InfoPlist.strings */; };
+		BEF910661882C16500F50441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910651882C16500F50441 /* main.m */; };
+		BEF9106A1882C16500F50441 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910691882C16500F50441 /* AppDelegate.m */; };
+		BEF9106D1882C16500F50441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF9106B1882C16500F50441 /* Main.storyboard */; };
+		BEF910751882C16500F50441 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF910741882C16500F50441 /* Images.xcassets */; };
+		BEF9107C1882C16500F50441 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9107B1882C16500F50441 /* XCTest.framework */; };
+		BEF9107D1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
+		BEF9107E1882C16500F50441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105D1882C16500F50441 /* UIKit.framework */; };
+		BEF910861882C16500F50441 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEF910841882C16500F50441 /* InfoPlist.strings */; };
+		BEF910881882C16500F50441 /* Pixel_StylesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910871882C16500F50441 /* Pixel_StylesTests.m */; };
+		BEF910E71882C26A00F50441 /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910931882C26A00F50441 /* NSMutableArray+QueueAdditions.m */; };
+		BEF910E81882C26A00F50441 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910951882C26A00F50441 /* UIDevice+Resolutions.m */; };
+		BEF910E91882C26A00F50441 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910981882C26A00F50441 /* GCDAsyncSocket.m */; };
+		BEF910EA1882C26A00F50441 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF9109A1882C26A00F50441 /* GCDAsyncUdpSocket.m */; };
+		BEF910EB1882C26A00F50441 /* HostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF9109C1882C26A00F50441 /* HostsViewController.m */; };
+		BEF910F21882C26A00F50441 /* UIStepperLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910AD1882C26A00F50441 /* UIStepperLeft.png */; };
+		BEF910F31882C26A00F50441 /* UIStepperLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910AE1882C26A00F50441 /* UIStepperLeft@2x.png */; };
+		BEF910F41882C26A00F50441 /* UIStepperLeftPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910AF1882C26A00F50441 /* UIStepperLeftPressed.png */; };
+		BEF910F51882C26A00F50441 /* UIStepperLeftPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B01882C26A00F50441 /* UIStepperLeftPressed@2x.png */; };
+		BEF910F61882C26A00F50441 /* UIStepperMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B11882C26A00F50441 /* UIStepperMiddle.png */; };
+		BEF910F71882C26A00F50441 /* UIStepperMiddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B21882C26A00F50441 /* UIStepperMiddle@2x.png */; };
+		BEF910F81882C26A00F50441 /* UIStepperMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B31882C26A00F50441 /* UIStepperMinus.png */; };
+		BEF910F91882C26A00F50441 /* UIStepperMinus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B41882C26A00F50441 /* UIStepperMinus@2x.png */; };
+		BEF910FA1882C26A00F50441 /* UIStepperPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B51882C26A00F50441 /* UIStepperPlus.png */; };
+		BEF910FB1882C26A00F50441 /* UIStepperPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B61882C26A00F50441 /* UIStepperPlus@2x.png */; };
+		BEF910FC1882C26A00F50441 /* UIStepperRight.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B71882C26A00F50441 /* UIStepperRight.png */; };
+		BEF910FD1882C26A00F50441 /* UIStepperRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B81882C26A00F50441 /* UIStepperRight@2x.png */; };
+		BEF910FE1882C26A00F50441 /* UIStepperRightPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910B91882C26A00F50441 /* UIStepperRightPressed.png */; };
+		BEF910FF1882C26A00F50441 /* UIStepperRightPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF910BA1882C26A00F50441 /* UIStepperRightPressed@2x.png */; };
+		BEF911001882C26A00F50441 /* TextStepperField.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910BC1882C26A00F50441 /* TextStepperField.m */; };
+		BEF911011882C26A00F50441 /* TouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910BE1882C26A00F50441 /* TouchViewController.m */; };
+		BEF911021882C26A00F50441 /* WMBonjourController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910C01882C26A00F50441 /* WMBonjourController.m */; };
+		BEF911051882C26A00F50441 /* WMService.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910C61882C26A00F50441 /* WMService.m */; };
+		BEF911061882C26A00F50441 /* WMServiceMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910C81882C26A00F50441 /* WMServiceMode.m */; };
+		BEF911071882C26A00F50441 /* WMServiceModeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910CA1882C26A00F50441 /* WMServiceModeSetting.m */; };
+		BEF9110A1882C26A00F50441 /* WMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910D01882C26A00F50441 /* WMTableViewCell.m */; };
+		BEF9110B1882C26A00F50441 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910D41882C26A00F50441 /* SBJsonParser.m */; };
+		BEF9110C1882C26A00F50441 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910D61882C26A00F50441 /* SBJsonStreamParser.m */; };
+		BEF9110D1882C26A00F50441 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910D81882C26A00F50441 /* SBJsonStreamParserAccumulator.m */; };
+		BEF9110E1882C26A00F50441 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910DA1882C26A00F50441 /* SBJsonStreamParserAdapter.m */; };
+		BEF9110F1882C26A00F50441 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910DC1882C26A00F50441 /* SBJsonStreamParserState.m */; };
+		BEF911101882C26A00F50441 /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910DE1882C26A00F50441 /* SBJsonStreamTokeniser.m */; };
+		BEF911111882C26A00F50441 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910E01882C26A00F50441 /* SBJsonStreamWriter.m */; };
+		BEF911121882C26A00F50441 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910E21882C26A00F50441 /* SBJsonStreamWriterAccumulator.m */; };
+		BEF911131882C26A00F50441 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910E41882C26A00F50441 /* SBJsonStreamWriterState.m */; };
+		BEF911141882C26A00F50441 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910E61882C26A00F50441 /* SBJsonWriter.m */; };
+		BEF9111A1882C2EE00F50441 /* SpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF911171882C2EE00F50441 /* SpectrumView.m */; };
+		BEF9111B1882C2EE00F50441 /* WMTouchDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF911191882C2EE00F50441 /* WMTouchDictionary.m */; };
+		BEF9111D1882C4B300F50441 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9111C1882C4B300F50441 /* libz.1.2.5.dylib */; };
+		BEF911201882C4E200F50441 /* WMServicesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF9111F1882C4E200F50441 /* WMServicesController.m */; };
+		BEF911291882D14D00F50441 /* ModesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF911281882D14D00F50441 /* ModesViewController.m */; };
+		BEF9112C1882D60100F50441 /* UIImage+ScaledToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF9112B1882D60100F50441 /* UIImage+ScaledToSize.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEF9107F1882C16500F50441 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEF9104E1882C16500F50441 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF910551882C16500F50441;
+			remoteInfo = "Pixel Styles";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
+		BE4E054118A66242004E0C37 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveViewController.h; path = "Pixel Styles/LiveViewController.h"; sourceTree = SOURCE_ROOT; };
+		BE4E054218A66242004E0C37 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveViewController.m; path = "Pixel Styles/LiveViewController.m"; sourceTree = SOURCE_ROOT; };
+		BE4E054418A67801004E0C37 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
+		BE4E054718A68F95004E0C37 /* WMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGridView.h; sourceTree = "<group>"; };
+		BE4E054818A68F95004E0C37 /* WMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGridView.m; sourceTree = "<group>"; };
+		BEF910561882C16500F50441 /* Pixel Styles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Styles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF910591882C16500F50441 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BEF9105B1882C16500F50441 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BEF9105D1882C16500F50441 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BEF910611882C16500F50441 /* Pixel Styles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixel Styles-Info.plist"; sourceTree = "<group>"; };
+		BEF910631882C16500F50441 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BEF910651882C16500F50441 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEF910671882C16500F50441 /* Pixel Styles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pixel Styles-Prefix.pch"; sourceTree = "<group>"; };
+		BEF910681882C16500F50441 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BEF910691882C16500F50441 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BEF9106C1882C16500F50441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEF910741882C16500F50441 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BEF9107A1882C16500F50441 /* Pixel StylesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel StylesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF9107B1882C16500F50441 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BEF910831882C16500F50441 /* Pixel StylesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixel StylesTests-Info.plist"; sourceTree = "<group>"; };
+		BEF910851882C16500F50441 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BEF910871882C16500F50441 /* Pixel_StylesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixel_StylesTests.m; sourceTree = "<group>"; };
+		BEF910921882C26A00F50441 /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
+		BEF910931882C26A00F50441 /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
+		BEF910941882C26A00F50441 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
+		BEF910951882C26A00F50441 /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
+		BEF910971882C26A00F50441 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		BEF910981882C26A00F50441 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		BEF910991882C26A00F50441 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		BEF9109A1882C26A00F50441 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		BEF9109B1882C26A00F50441 /* HostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HostsViewController.h; path = "Pixel Styles/HostsViewController.h"; sourceTree = "<group>"; };
+		BEF9109C1882C26A00F50441 /* HostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostsViewController.m; path = "Pixel Styles/HostsViewController.m"; sourceTree = "<group>"; };
+		BEF910AD1882C26A00F50441 /* UIStepperLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperLeft.png; sourceTree = "<group>"; };
+		BEF910AE1882C26A00F50441 /* UIStepperLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperLeft@2x.png"; sourceTree = "<group>"; };
+		BEF910AF1882C26A00F50441 /* UIStepperLeftPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperLeftPressed.png; sourceTree = "<group>"; };
+		BEF910B01882C26A00F50441 /* UIStepperLeftPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperLeftPressed@2x.png"; sourceTree = "<group>"; };
+		BEF910B11882C26A00F50441 /* UIStepperMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperMiddle.png; sourceTree = "<group>"; };
+		BEF910B21882C26A00F50441 /* UIStepperMiddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperMiddle@2x.png"; sourceTree = "<group>"; };
+		BEF910B31882C26A00F50441 /* UIStepperMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperMinus.png; sourceTree = "<group>"; };
+		BEF910B41882C26A00F50441 /* UIStepperMinus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperMinus@2x.png"; sourceTree = "<group>"; };
+		BEF910B51882C26A00F50441 /* UIStepperPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperPlus.png; sourceTree = "<group>"; };
+		BEF910B61882C26A00F50441 /* UIStepperPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperPlus@2x.png"; sourceTree = "<group>"; };
+		BEF910B71882C26A00F50441 /* UIStepperRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperRight.png; sourceTree = "<group>"; };
+		BEF910B81882C26A00F50441 /* UIStepperRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperRight@2x.png"; sourceTree = "<group>"; };
+		BEF910B91882C26A00F50441 /* UIStepperRightPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIStepperRightPressed.png; sourceTree = "<group>"; };
+		BEF910BA1882C26A00F50441 /* UIStepperRightPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperRightPressed@2x.png"; sourceTree = "<group>"; };
+		BEF910BB1882C26A00F50441 /* TextStepperField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextStepperField.h; sourceTree = "<group>"; };
+		BEF910BC1882C26A00F50441 /* TextStepperField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStepperField.m; sourceTree = "<group>"; };
+		BEF910BD1882C26A00F50441 /* TouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchViewController.h; sourceTree = "<group>"; };
+		BEF910BE1882C26A00F50441 /* TouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchViewController.m; sourceTree = "<group>"; };
+		BEF910BF1882C26A00F50441 /* WMBonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMBonjourController.h; sourceTree = "<group>"; };
+		BEF910C01882C26A00F50441 /* WMBonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMBonjourController.m; sourceTree = "<group>"; };
+		BEF910C51882C26A00F50441 /* WMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMService.h; sourceTree = "<group>"; };
+		BEF910C61882C26A00F50441 /* WMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMService.m; sourceTree = "<group>"; };
+		BEF910C71882C26A00F50441 /* WMServiceMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMServiceMode.h; sourceTree = "<group>"; };
+		BEF910C81882C26A00F50441 /* WMServiceMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMServiceMode.m; sourceTree = "<group>"; };
+		BEF910C91882C26A00F50441 /* WMServiceModeSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMServiceModeSetting.h; sourceTree = "<group>"; };
+		BEF910CA1882C26A00F50441 /* WMServiceModeSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMServiceModeSetting.m; sourceTree = "<group>"; };
+		BEF910CF1882C26A00F50441 /* WMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTableViewCell.h; sourceTree = "<group>"; };
+		BEF910D01882C26A00F50441 /* WMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewCell.m; sourceTree = "<group>"; };
+		BEF910D21882C26A00F50441 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		BEF910D31882C26A00F50441 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		BEF910D41882C26A00F50441 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		BEF910D51882C26A00F50441 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		BEF910D61882C26A00F50441 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		BEF910D71882C26A00F50441 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		BEF910D81882C26A00F50441 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		BEF910D91882C26A00F50441 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		BEF910DA1882C26A00F50441 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		BEF910DB1882C26A00F50441 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		BEF910DC1882C26A00F50441 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		BEF910DD1882C26A00F50441 /* SBJsonStreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamTokeniser.h; sourceTree = "<group>"; };
+		BEF910DE1882C26A00F50441 /* SBJsonStreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamTokeniser.m; sourceTree = "<group>"; };
+		BEF910DF1882C26A00F50441 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		BEF910E01882C26A00F50441 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		BEF910E11882C26A00F50441 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		BEF910E21882C26A00F50441 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		BEF910E31882C26A00F50441 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		BEF910E41882C26A00F50441 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		BEF910E51882C26A00F50441 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		BEF910E61882C26A00F50441 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		BEF911161882C2EE00F50441 /* SpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrumView.h; sourceTree = "<group>"; };
+		BEF911171882C2EE00F50441 /* SpectrumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectrumView.m; sourceTree = "<group>"; };
+		BEF911181882C2EE00F50441 /* WMTouchDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTouchDictionary.h; sourceTree = "<group>"; };
+		BEF911191882C2EE00F50441 /* WMTouchDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTouchDictionary.m; sourceTree = "<group>"; };
+		BEF9111C1882C4B300F50441 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		BEF9111E1882C4E200F50441 /* WMServicesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMServicesController.h; sourceTree = "<group>"; };
+		BEF9111F1882C4E200F50441 /* WMServicesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMServicesController.m; sourceTree = "<group>"; };
+		BEF911271882D14D00F50441 /* ModesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModesViewController.h; path = "Pixel Styles/RGB Styles/ModesViewController.h"; sourceTree = "<group>"; };
+		BEF911281882D14D00F50441 /* ModesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModesViewController.m; path = "Pixel Styles/RGB Styles/ModesViewController.m"; sourceTree = "<group>"; };
+		BEF9112A1882D60100F50441 /* UIImage+ScaledToSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScaledToSize.h"; sourceTree = "<group>"; };
+		BEF9112B1882D60100F50441 /* UIImage+ScaledToSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScaledToSize.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEF910531882C16500F50441 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF9111D1882C4B300F50441 /* libz.1.2.5.dylib in Frameworks */,
+				BEF9105C1882C16500F50441 /* CoreGraphics.framework in Frameworks */,
+				BEF9105E1882C16500F50441 /* UIKit.framework in Frameworks */,
+				BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF910771882C16500F50441 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF9107C1882C16500F50441 /* XCTest.framework in Frameworks */,
+				BEF9107E1882C16500F50441 /* UIKit.framework in Frameworks */,
+				BEF9107D1882C16500F50441 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEF9104D1882C16500F50441 = {
+			isa = PBXGroup;
+			children = (
+				BEF910911882C26A00F50441 /* Additions */,
+				BEF910961882C26A00F50441 /* GCDAsyncSocket */,
+				BEF9109B1882C26A00F50441 /* HostsViewController.h */,
+				BEF9109C1882C26A00F50441 /* HostsViewController.m */,
+				BEF911271882D14D00F50441 /* ModesViewController.h */,
+				BEF911281882D14D00F50441 /* ModesViewController.m */,
+				BE4E054118A66242004E0C37 /* LiveViewController.h */,
+				BE4E054218A66242004E0C37 /* LiveViewController.m */,
+				BEF9109D1882C26A00F50441 /* RGB Styles */,
+				BEF910D11882C26A00F50441 /* SBJSON */,
+				BEF9105F1882C16500F50441 /* Pixel Styles */,
+				BEF910811882C16500F50441 /* Pixel StylesTests */,
+				BEF910581882C16500F50441 /* Frameworks */,
+				BEF910571882C16500F50441 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEF910571882C16500F50441 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910561882C16500F50441 /* Pixel Styles.app */,
+				BEF9107A1882C16500F50441 /* Pixel StylesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEF910581882C16500F50441 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEF9111C1882C4B300F50441 /* libz.1.2.5.dylib */,
+				BEF910591882C16500F50441 /* Foundation.framework */,
+				BEF9105B1882C16500F50441 /* CoreGraphics.framework */,
+				BEF9105D1882C16500F50441 /* UIKit.framework */,
+				BEF9107B1882C16500F50441 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEF9105F1882C16500F50441 /* Pixel Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910681882C16500F50441 /* AppDelegate.h */,
+				BEF910691882C16500F50441 /* AppDelegate.m */,
+				BEF9106B1882C16500F50441 /* Main.storyboard */,
+				BEF910741882C16500F50441 /* Images.xcassets */,
+				BEF910601882C16500F50441 /* Supporting Files */,
+			);
+			path = "Pixel Styles";
+			sourceTree = "<group>";
+		};
+		BEF910601882C16500F50441 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910611882C16500F50441 /* Pixel Styles-Info.plist */,
+				BEF910621882C16500F50441 /* InfoPlist.strings */,
+				BEF910651882C16500F50441 /* main.m */,
+				BEF910671882C16500F50441 /* Pixel Styles-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEF910811882C16500F50441 /* Pixel StylesTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910871882C16500F50441 /* Pixel_StylesTests.m */,
+				BEF910821882C16500F50441 /* Supporting Files */,
+			);
+			path = "Pixel StylesTests";
+			sourceTree = "<group>";
+		};
+		BEF910821882C16500F50441 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910831882C16500F50441 /* Pixel StylesTests-Info.plist */,
+				BEF910841882C16500F50441 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEF910911882C26A00F50441 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BE4E054418A67801004E0C37 /* UIView+Hierarchy.h */,
+				BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */,
+				BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */,
+				BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */,
+				BEF9112A1882D60100F50441 /* UIImage+ScaledToSize.h */,
+				BEF9112B1882D60100F50441 /* UIImage+ScaledToSize.m */,
+				BEF910921882C26A00F50441 /* NSMutableArray+QueueAdditions.h */,
+				BEF910931882C26A00F50441 /* NSMutableArray+QueueAdditions.m */,
+				BEF910941882C26A00F50441 /* UIDevice+Resolutions.h */,
+				BEF910951882C26A00F50441 /* UIDevice+Resolutions.m */,
+			);
+			name = Additions;
+			path = "Pixel Styles/Additions";
+			sourceTree = "<group>";
+		};
+		BEF910961882C26A00F50441 /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910971882C26A00F50441 /* GCDAsyncSocket.h */,
+				BEF910981882C26A00F50441 /* GCDAsyncSocket.m */,
+				BEF910991882C26A00F50441 /* GCDAsyncUdpSocket.h */,
+				BEF9109A1882C26A00F50441 /* GCDAsyncUdpSocket.m */,
+			);
+			name = GCDAsyncSocket;
+			path = "Pixel Styles/GCDAsyncSocket";
+			sourceTree = "<group>";
+		};
+		BEF9109D1882C26A00F50441 /* RGB Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BE4E054718A68F95004E0C37 /* WMGridView.h */,
+				BE4E054818A68F95004E0C37 /* WMGridView.m */,
+				BEF9111E1882C4E200F50441 /* WMServicesController.h */,
+				BEF9111F1882C4E200F50441 /* WMServicesController.m */,
+				BEF910AB1882C26A00F50441 /* TextStepperField */,
+				BEF911151882C2EE00F50441 /* SpectrumView */,
+				BEF910BD1882C26A00F50441 /* TouchViewController.h */,
+				BEF910BE1882C26A00F50441 /* TouchViewController.m */,
+				BEF910BF1882C26A00F50441 /* WMBonjourController.h */,
+				BEF910C01882C26A00F50441 /* WMBonjourController.m */,
+				BEF910C51882C26A00F50441 /* WMService.h */,
+				BEF910C61882C26A00F50441 /* WMService.m */,
+				BEF910C71882C26A00F50441 /* WMServiceMode.h */,
+				BEF910C81882C26A00F50441 /* WMServiceMode.m */,
+				BEF910C91882C26A00F50441 /* WMServiceModeSetting.h */,
+				BEF910CA1882C26A00F50441 /* WMServiceModeSetting.m */,
+				BEF910CF1882C26A00F50441 /* WMTableViewCell.h */,
+				BEF910D01882C26A00F50441 /* WMTableViewCell.m */,
+			);
+			name = "RGB Styles";
+			path = "Pixel Styles/RGB Styles";
+			sourceTree = "<group>";
+		};
+		BEF910AB1882C26A00F50441 /* TextStepperField */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910AC1882C26A00F50441 /* Res Grafics */,
+				BEF910BB1882C26A00F50441 /* TextStepperField.h */,
+				BEF910BC1882C26A00F50441 /* TextStepperField.m */,
+			);
+			path = TextStepperField;
+			sourceTree = "<group>";
+		};
+		BEF910AC1882C26A00F50441 /* Res Grafics */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910AD1882C26A00F50441 /* UIStepperLeft.png */,
+				BEF910AE1882C26A00F50441 /* UIStepperLeft@2x.png */,
+				BEF910AF1882C26A00F50441 /* UIStepperLeftPressed.png */,
+				BEF910B01882C26A00F50441 /* UIStepperLeftPressed@2x.png */,
+				BEF910B11882C26A00F50441 /* UIStepperMiddle.png */,
+				BEF910B21882C26A00F50441 /* UIStepperMiddle@2x.png */,
+				BEF910B31882C26A00F50441 /* UIStepperMinus.png */,
+				BEF910B41882C26A00F50441 /* UIStepperMinus@2x.png */,
+				BEF910B51882C26A00F50441 /* UIStepperPlus.png */,
+				BEF910B61882C26A00F50441 /* UIStepperPlus@2x.png */,
+				BEF910B71882C26A00F50441 /* UIStepperRight.png */,
+				BEF910B81882C26A00F50441 /* UIStepperRight@2x.png */,
+				BEF910B91882C26A00F50441 /* UIStepperRightPressed.png */,
+				BEF910BA1882C26A00F50441 /* UIStepperRightPressed@2x.png */,
+			);
+			path = "Res Grafics";
+			sourceTree = "<group>";
+		};
+		BEF910D11882C26A00F50441 /* SBJSON */ = {
+			isa = PBXGroup;
+			children = (
+				BEF910D21882C26A00F50441 /* SBJson.h */,
+				BEF910D31882C26A00F50441 /* SBJsonParser.h */,
+				BEF910D41882C26A00F50441 /* SBJsonParser.m */,
+				BEF910D51882C26A00F50441 /* SBJsonStreamParser.h */,
+				BEF910D61882C26A00F50441 /* SBJsonStreamParser.m */,
+				BEF910D71882C26A00F50441 /* SBJsonStreamParserAccumulator.h */,
+				BEF910D81882C26A00F50441 /* SBJsonStreamParserAccumulator.m */,
+				BEF910D91882C26A00F50441 /* SBJsonStreamParserAdapter.h */,
+				BEF910DA1882C26A00F50441 /* SBJsonStreamParserAdapter.m */,
+				BEF910DB1882C26A00F50441 /* SBJsonStreamParserState.h */,
+				BEF910DC1882C26A00F50441 /* SBJsonStreamParserState.m */,
+				BEF910DD1882C26A00F50441 /* SBJsonStreamTokeniser.h */,
+				BEF910DE1882C26A00F50441 /* SBJsonStreamTokeniser.m */,
+				BEF910DF1882C26A00F50441 /* SBJsonStreamWriter.h */,
+				BEF910E01882C26A00F50441 /* SBJsonStreamWriter.m */,
+				BEF910E11882C26A00F50441 /* SBJsonStreamWriterAccumulator.h */,
+				BEF910E21882C26A00F50441 /* SBJsonStreamWriterAccumulator.m */,
+				BEF910E31882C26A00F50441 /* SBJsonStreamWriterState.h */,
+				BEF910E41882C26A00F50441 /* SBJsonStreamWriterState.m */,
+				BEF910E51882C26A00F50441 /* SBJsonWriter.h */,
+				BEF910E61882C26A00F50441 /* SBJsonWriter.m */,
+			);
+			name = SBJSON;
+			path = "Pixel Styles/SBJSON";
+			sourceTree = "<group>";
+		};
+		BEF911151882C2EE00F50441 /* SpectrumView */ = {
+			isa = PBXGroup;
+			children = (
+				BEF911161882C2EE00F50441 /* SpectrumView.h */,
+				BEF911171882C2EE00F50441 /* SpectrumView.m */,
+				BEF911181882C2EE00F50441 /* WMTouchDictionary.h */,
+				BEF911191882C2EE00F50441 /* WMTouchDictionary.m */,
+			);
+			path = SpectrumView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEF910551882C16500F50441 /* Pixel Styles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF9108B1882C16500F50441 /* Build configuration list for PBXNativeTarget "Pixel Styles" */;
+			buildPhases = (
+				BEF910521882C16500F50441 /* Sources */,
+				BEF910531882C16500F50441 /* Frameworks */,
+				BEF910541882C16500F50441 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pixel Styles";
+			productName = "Pixel Styles";
+			productReference = BEF910561882C16500F50441 /* Pixel Styles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEF910791882C16500F50441 /* Pixel StylesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF9108E1882C16500F50441 /* Build configuration list for PBXNativeTarget "Pixel StylesTests" */;
+			buildPhases = (
+				BEF910761882C16500F50441 /* Sources */,
+				BEF910771882C16500F50441 /* Frameworks */,
+				BEF910781882C16500F50441 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEF910801882C16500F50441 /* PBXTargetDependency */,
+			);
+			name = "Pixel StylesTests";
+			productName = "Pixel StylesTests";
+			productReference = BEF9107A1882C16500F50441 /* Pixel StylesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEF9104E1882C16500F50441 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "RGB Styles";
+				TargetAttributes = {
+					BEF910791882C16500F50441 = {
+						TestTargetID = BEF910551882C16500F50441;
+					};
+				};
+			};
+			buildConfigurationList = BEF910511882C16500F50441 /* Build configuration list for PBXProject "Pixel Styles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEF9104D1882C16500F50441;
+			productRefGroup = BEF910571882C16500F50441 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEF910551882C16500F50441 /* Pixel Styles */,
+				BEF910791882C16500F50441 /* Pixel StylesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEF910541882C16500F50441 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF910FB1882C26A00F50441 /* UIStepperPlus@2x.png in Resources */,
+				BEF910FE1882C26A00F50441 /* UIStepperRightPressed.png in Resources */,
+				BEF910F81882C26A00F50441 /* UIStepperMinus.png in Resources */,
+				BEF910FF1882C26A00F50441 /* UIStepperRightPressed@2x.png in Resources */,
+				BEF910FA1882C26A00F50441 /* UIStepperPlus.png in Resources */,
+				BEF910F21882C26A00F50441 /* UIStepperLeft.png in Resources */,
+				BEF910F91882C26A00F50441 /* UIStepperMinus@2x.png in Resources */,
+				BEF910751882C16500F50441 /* Images.xcassets in Resources */,
+				BEF910FC1882C26A00F50441 /* UIStepperRight.png in Resources */,
+				BEF910F51882C26A00F50441 /* UIStepperLeftPressed@2x.png in Resources */,
+				BEF910F31882C26A00F50441 /* UIStepperLeft@2x.png in Resources */,
+				BEF910641882C16500F50441 /* InfoPlist.strings in Resources */,
+				BEF9106D1882C16500F50441 /* Main.storyboard in Resources */,
+				BEF910F61882C26A00F50441 /* UIStepperMiddle.png in Resources */,
+				BEF910F71882C26A00F50441 /* UIStepperMiddle@2x.png in Resources */,
+				BEF910F41882C26A00F50441 /* UIStepperLeftPressed.png in Resources */,
+				BEF910FD1882C26A00F50441 /* UIStepperRight@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF910781882C16500F50441 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF910861882C16500F50441 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEF910521882C16500F50441 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF911111882C26A00F50441 /* SBJsonStreamWriter.m in Sources */,
+				BEF911061882C26A00F50441 /* WMServiceMode.m in Sources */,
+				BEF9110B1882C26A00F50441 /* SBJsonParser.m in Sources */,
+				BEF9106A1882C16500F50441 /* AppDelegate.m in Sources */,
+				BEF9110F1882C26A00F50441 /* SBJsonStreamParserState.m in Sources */,
+				BEF911051882C26A00F50441 /* WMService.m in Sources */,
+				BEF911071882C26A00F50441 /* WMServiceModeSetting.m in Sources */,
+				BEF9111A1882C2EE00F50441 /* SpectrumView.m in Sources */,
+				BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */,
+				BEF910E91882C26A00F50441 /* GCDAsyncSocket.m in Sources */,
+				BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */,
+				BEF9111B1882C2EE00F50441 /* WMTouchDictionary.m in Sources */,
+				BEF911201882C4E200F50441 /* WMServicesController.m in Sources */,
+				BEF910E81882C26A00F50441 /* UIDevice+Resolutions.m in Sources */,
+				BEF9110D1882C26A00F50441 /* SBJsonStreamParserAccumulator.m in Sources */,
+				BEF911011882C26A00F50441 /* TouchViewController.m in Sources */,
+				BEF911131882C26A00F50441 /* SBJsonStreamWriterState.m in Sources */,
+				BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */,
+				BEF9110A1882C26A00F50441 /* WMTableViewCell.m in Sources */,
+				BEF9110C1882C26A00F50441 /* SBJsonStreamParser.m in Sources */,
+				BEF9110E1882C26A00F50441 /* SBJsonStreamParserAdapter.m in Sources */,
+				BEF911121882C26A00F50441 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				BEF911021882C26A00F50441 /* WMBonjourController.m in Sources */,
+				BEF910E71882C26A00F50441 /* NSMutableArray+QueueAdditions.m in Sources */,
+				BEF911101882C26A00F50441 /* SBJsonStreamTokeniser.m in Sources */,
+				BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */,
+				BEF910EA1882C26A00F50441 /* GCDAsyncUdpSocket.m in Sources */,
+				BEF911291882D14D00F50441 /* ModesViewController.m in Sources */,
+				BEF910661882C16500F50441 /* main.m in Sources */,
+				BEF9112C1882D60100F50441 /* UIImage+ScaledToSize.m in Sources */,
+				BEF910EB1882C26A00F50441 /* HostsViewController.m in Sources */,
+				BEF911001882C26A00F50441 /* TextStepperField.m in Sources */,
+				BEF911141882C26A00F50441 /* SBJsonWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF910761882C16500F50441 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF910881882C16500F50441 /* Pixel_StylesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEF910801882C16500F50441 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEF910551882C16500F50441 /* Pixel Styles */;
+			targetProxy = BEF9107F1882C16500F50441 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEF910621882C16500F50441 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF910631882C16500F50441 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BEF9106B1882C16500F50441 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF9106C1882C16500F50441 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEF910841882C16500F50441 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF910851882C16500F50441 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEF910891882C16500F50441 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BEF9108A1882C16500F50441 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEF9108C1882C16500F50441 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
+				INFOPLIST_FILE = "Pixel Styles/Pixel Styles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BEF9108D1882C16500F50441 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
+				INFOPLIST_FILE = "Pixel Styles/Pixel Styles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BEF9108F1882C16500F50441 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Styles.app/Pixel Styles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Pixel StylesTests/Pixel StylesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BEF910901882C16500F50441 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Styles.app/Pixel Styles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
+				INFOPLIST_FILE = "Pixel StylesTests/Pixel StylesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEF910511882C16500F50441 /* Build configuration list for PBXProject "Pixel Styles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF910891882C16500F50441 /* Debug */,
+				BEF9108A1882C16500F50441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEF9108B1882C16500F50441 /* Build configuration list for PBXNativeTarget "Pixel Styles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF9108C1882C16500F50441 /* Debug */,
+				BEF9108D1882C16500F50441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEF9108E1882C16500F50441 /* Build configuration list for PBXNativeTarget "Pixel StylesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF9108F1882C16500F50441 /* Debug */,
+				BEF910901882C16500F50441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEF9104E1882C16500F50441 /* Project object */;
+}
