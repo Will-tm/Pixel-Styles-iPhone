@@ -29,20 +29,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    [_service beginLivePreview];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [_service endLivePreview];
-}
-
 - (void)setMode:(WMServiceMode *)mode
 {
     _mode = mode;

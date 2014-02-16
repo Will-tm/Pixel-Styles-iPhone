@@ -290,7 +290,7 @@ WMBonjourController* sharedInstance;
         NSString *macAddress = [jsonImage objectForKey:@"mac_address"];
         if (macAddress != nil) {
             for (WMService *service in _services) {
-                if (service.connected && [service.macAddress isEqualToString:macAddress] && service.acceptUdpMessage) {
+                if (service.connected && [service.macAddress isEqualToString:macAddress]) {
                     [service parseJsonImage:jsonImage];
                 }
             }

@@ -48,7 +48,6 @@
         _jsonParser = [SBJsonParser new];
         _resolved = NO;
         _resolving = NO;
-        _acceptUdpMessage = NO;
         _retryCount = 0;
     }
     return self;
@@ -219,8 +218,6 @@
     if (_tryConnectWithCompletionBlock) {
         _tryConnectWithCompletionBlock(NO);
     }
-
-    [self endLivePreview];
 }
 
 - (NSData*)gunzip:(NSData*)data
@@ -471,16 +468,6 @@
 - (void)modeDidReceiveTouchEvent:(NSString*)touchString
 {
     [self sendMessage:touchString];
-}
-
-- (void)beginLivePreview
-{
-    _acceptUdpMessage = YES;
-}
-
-- (void)endLivePreview
-{
-    _acceptUdpMessage = NO;
 }
 
 - (void)parseJsonImage:(NSDictionary*)jsonImage

@@ -43,7 +43,6 @@
 @property (nonatomic, readonly) NSInteger activeModeIndex;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) bool done;
-@property (nonatomic) bool acceptUdpMessage;
 @property (nonatomic) NSInteger retryCount;
 @property (nonatomic) NSInteger width;
 @property (nonatomic) NSInteger height;
@@ -52,8 +51,6 @@
 - (void)tryConnect;
 - (void)sendMessage:(NSString*)message;
 - (void)sendMessage:(NSString*)message withTimeout:(NSTimeInterval)timeout;
-- (void)beginLivePreview;
-- (void)endLivePreview;
 - (void)parseJsonImage:(NSDictionary*)jsonImage;
 
 @property (copy) void(^tryConnectWithCompletionBlock)(BOOL connected);

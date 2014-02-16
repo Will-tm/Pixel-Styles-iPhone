@@ -44,16 +44,7 @@
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         
         self.navigationItem.title = _service.name;
-        
-        [_service beginLivePreview];
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [_service endLivePreview];
 }
 
 - (void)setService:(WMService *)service

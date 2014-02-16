@@ -256,6 +256,7 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
 
         CGRect finalFrame = [self getPopupFrameForViewController:viewControllerToPresent];
         // parallax setup if iOS7+
+        /*
         UIInterpolatingMotionEffect *interpolationHorizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
         interpolationHorizontal.minimumRelativeValue = @-10.0;
         interpolationHorizontal.maximumRelativeValue = @10.0;
@@ -264,7 +265,7 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
         interpolationHorizontal.maximumRelativeValue = @10.0;
         [self.popupViewController.view addMotionEffect:interpolationHorizontal];
         [self.popupViewController.view addMotionEffect:interpolationVertical];
-        
+        */
         // shadow setup
         viewControllerToPresent.view.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
         viewControllerToPresent.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -297,9 +298,9 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
             [self.view addSubview:viewControllerToPresent.view];
             [UIView animateWithDuration:ANIMATION_TIME delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 viewControllerToPresent.view.frame = finalFrame;
-                blurView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
                 blurView.alpha = 1.0f;
-                clearView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
+                //blurView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
+                //clearView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
             } completion:^(BOOL finished) {
                 [self.popupViewController didMoveToParentViewController:self];
                 [self.popupViewController endAppearanceTransition];
@@ -331,8 +332,8 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
             // uncomment the line below to have slight rotation during the dismissal
             // self.popupViewController.view.transform = CGAffineTransformMakeRotation(M_PI/6);
             blurView.alpha = 0.0f;
-            blurView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-            clearView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            //blurView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            //clearView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         } completion:^(BOOL finished) {
             [self.popupViewController removeFromParentViewController];
             [self.popupViewController endAppearanceTransition];
