@@ -14,14 +14,6 @@
 
 @implementation TouchViewController
 
-- (void)setServices:(NSArray *)services
-{
-    _services = services;
-    if (services != nil && services.count) {
-        _service = services[0];
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -84,16 +76,7 @@
 
 - (void)spectrumViewGotColorStringReady:(NSString*)colorString
 {
-    for (WMService *service in _services) {
-        if (service.connected) {
-            for (WMServiceMode *mode in service.modes) {
-                if ([mode.name isEqualToString: _mode.name]) {
-                    [mode sendTouchEvent:colorString];
-                }
-            }
-        }
-    }
-    //[_mode sendTouchEvent:colorString];
+    [_mode sendTouchEvent:colorString];
 }
 
 #pragma mark - Navigation

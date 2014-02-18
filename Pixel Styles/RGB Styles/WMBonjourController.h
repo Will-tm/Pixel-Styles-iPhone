@@ -22,12 +22,10 @@ typedef enum
 @property (nonatomic, strong) SBJsonParser *jsonParser;
 @property (nonatomic) id delegate;
 @property (nonatomic, weak, readonly) NSArray* services;
-@property (nonatomic, readonly) NSArray* selectedServices;
 
 - (void)searchForServices;
 - (BOOL)addServiceWithName:(NSString *)name domain:(NSString *)domain type:(NSString *)type;
 - (void)removeService:(WMService*)service;
-- (void)sendGeneralMessage:(NSString*)message;
 + (WMBonjourController*)sharedInstance;
 
 @end

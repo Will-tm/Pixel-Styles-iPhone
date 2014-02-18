@@ -252,34 +252,12 @@ WMBonjourController* sharedInstance;
     LOG(@"%s",__FUNCTION__);
 }
 
-- (void)sendGeneralMessage:(NSString*)message
-{
-    for (WMService *service in wmServices)
-    {
-        if (service.selected)
-        {
-            [service sendMessage:message];
-        }
-    }
-}
-
 - (void)didUpdateLivePreview:(UIImage*)image
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary new];
     [userInfo setObject:image forKey:@"image"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didUpdateLivePreview"object:nil userInfo:userInfo];
-}
-
-- (NSArray *)selectedServices
-{
-    NSMutableArray *selected = [NSMutableArray new];
-    for (WMService *service in wmServices) {
-        if (service.selected) {
-            [selected addObject:service];
-        }
-    }
-    return selected;
 }
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext

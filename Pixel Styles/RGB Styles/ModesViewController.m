@@ -45,6 +45,8 @@
         
         self.navigationItem.title = _service.name;
     }
+    
+    [self.navigationController dismissPopupViewControllerAnimated:NO completion:nil];
 }
 
 - (void)setService:(WMService *)service
@@ -163,13 +165,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    /*
     if ([[segue identifier] isEqualToString:@"showSettingsOfMode"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         WMServiceMode *mode = [_service.modes objectAtIndex:indexPath.row];
  
-        [[segue destinationViewController] setServices:_services];
+        [[segue destinationViewController] setService:_service];
         [[segue destinationViewController] setMode:mode];
     }
     if ([[segue identifier] isEqualToString:@"showTouchOfMode"])
@@ -177,10 +178,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         WMServiceMode *mode = [_service.modes objectAtIndex:indexPath.row];
 
-        [[segue destinationViewController] setServices:_services];
+        [[segue destinationViewController] setService:_service];
         [[segue destinationViewController] setMode:mode];
     }
-    */ 
 }
 
 @end

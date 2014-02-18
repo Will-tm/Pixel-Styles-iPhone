@@ -25,7 +25,6 @@
 @property (nonatomic, readonly) BOOL connecting;
 @property (nonatomic) BOOL resolved;
 @property (nonatomic) BOOL resolving;
-@property (nonatomic) BOOL selected;
 @property (nonatomic) id delegate;
 @property (nonatomic, strong, readonly) NSData *ip;
 @property (nonatomic, strong, readonly) NSString *name;
@@ -41,7 +40,7 @@
 @property (nonatomic, strong) NSString *activeModeName;
 @property (nonatomic, strong) NSMutableArray *modes;
 @property (nonatomic, readonly) NSInteger activeModeIndex;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *keepAliveTimer;
 @property (nonatomic) bool done;
 @property (nonatomic) NSInteger retryCount;
 @property (nonatomic) NSInteger width;

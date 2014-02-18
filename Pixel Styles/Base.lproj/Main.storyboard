@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.2" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -88,7 +88,6 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="240" height="240"/>
                     <connections>
                         <outlet property="gridView" destination="4g5-bj-IcA" id="ZJI-Xq-bdw"/>
                         <outlet property="imageView" destination="8Xb-XB-8bG" id="RXz-gl-cf0"/>
@@ -123,6 +122,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="FNe-2g-Hur" kind="push" identifier="showSettingsOfMode" trigger="accessoryAction" id="vKf-L8-PBr"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModeCellSpectrum" textLabel="Ws9-RY-5yc" style="IBUITableViewCellStyleDefault" id="ZiP-ok-jUN">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
@@ -140,6 +142,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="hbe-du-MWd" kind="push" identifier="showTouchOfMode" trigger="accessoryAction" id="C8S-fd-4t2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -153,7 +158,88 @@
             </objects>
             <point key="canvasLocation" x="926" y="64"/>
         </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="ssi-bs-teF">
+            <objects>
+                <tableViewController id="FNe-2g-Hur" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="o6m-Ma-VSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" textLabel="ket-Up-IYc" style="IBUITableViewCellStyleDefault" id="W8Y-Za-qHH">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W8Y-Za-qHH" id="tC5-Sz-bsM">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ket-Up-IYc">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FNe-2g-Hur" id="uhT-ZI-Nix"/>
+                            <outlet property="delegate" destination="FNe-2g-Hur" id="D7B-E2-Hgi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="a7D-wZ-npt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rws-8l-a6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="-267"/>
+        </scene>
+        <!--Touch View Controller - Touch-->
+        <scene sceneID="Vm7-qf-Lvs">
+            <objects>
+                <tableViewController title="Touch" id="hbe-du-MWd" customClass="TouchViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="484" sectionHeaderHeight="22" sectionFooterHeight="22" id="PBY-Kt-cAo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell multipleTouchEnabled="YES" tag="50" contentMode="scaleToFill" restorationIdentifier="TouchCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TouchCell" id="7pS-mT-yJB">
+                                <rect key="frame" x="0.0" y="86" width="320" height="484"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="40" contentMode="center" tableViewCell="7pS-mT-yJB" id="Fdc-Br-3va">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spectrum" translatesAutoresizingMaskIntoConstraints="NO" id="vWA-kS-hrO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <view multipleTouchEnabled="YES" tag="50" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGr-PR-NJq" customClass="SpectrumView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hbe-du-MWd" id="QRk-nm-4AP"/>
+                            <outlet property="delegate" destination="hbe-du-MWd" id="0l7-C8-ToE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Touch" id="m0f-Rm-5IH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcT-6x-Qqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="395"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Spectrum" width="320" height="392"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -59,17 +59,6 @@ WMServicesController *sharedInstance = nil;
     return mBonjourController.services;
 }
 
-- (NSArray *)selectedServices
-{
-    NSMutableArray *selected = [NSMutableArray new];
-    for (WMService *service in self.services) {
-        if (service.selected) {
-            [selected addObject:service];
-        }
-    }
-    return selected;
-}
-
 - (void)searchForServicesWithCompletion:(void(^)(NSArray *services))completion
                                 arrival:(void(^)(WMService *service))arrival
                              connection:(void(^)(WMService *service))connection
@@ -90,13 +79,6 @@ WMServicesController *sharedInstance = nil;
     LOG(@"%@",service.name);
 
     [mBonjourController removeService:service];
-}
-
-- (void)clearSelection
-{
-    for (WMService *service in self.services) {
-        service.selected = NO;
-    }
 }
 
 #pragma mark - Tiny Tools

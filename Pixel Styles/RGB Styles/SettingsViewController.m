@@ -34,15 +34,6 @@
     [super viewWillAppear:animated];
     
     self.navigationItem.title = _mode.name;
-
-    [_service beginLivePreview];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [_service endLivePreview];
 }
 
 - (void)setMode:(WMServiceMode *)mode
@@ -108,12 +99,10 @@
             
         case ihmSegmentedControl:
         {
-            /*
-            NSArray * segmentItems;
+            NSArray *segmentItems;
             UISegmentedControl *segmentedControl;
             segmentedControl.tag = indexPath.row;
             [cell addSubview:segmentedControl];
-             */
         }
             break;
             
@@ -133,6 +122,7 @@
         }
             break;
             
+        case ihmLogTrackbar:
         case ihmTrackbar:
         {
             UISlider *trackbar         = [[UISlider         alloc] initWithFrame:CGRectMake(180, 8, 120, 30)];
@@ -146,6 +136,19 @@
             [cell addSubview:trackbar];
         }
             break;
+            
+        case ihmButton:
+        {
+            
+        }
+            break;
+            
+        case ihmColorSelector:
+        {
+            
+        }
+            break;
+            
     }
     
     return cell;

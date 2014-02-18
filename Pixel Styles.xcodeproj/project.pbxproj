@@ -11,6 +11,7 @@
 		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
 		BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054818A68F95004E0C37 /* WMGridView.m */; };
+		BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC9967E18B403580031A45F /* SettingsViewController.m */; };
 		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
 		BEF9105C1882C16500F50441 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105B1882C16500F50441 /* CoreGraphics.framework */; };
 		BEF9105E1882C16500F50441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105D1882C16500F50441 /* UIKit.framework */; };
@@ -87,6 +88,8 @@
 		BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		BE4E054718A68F95004E0C37 /* WMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGridView.h; sourceTree = "<group>"; };
 		BE4E054818A68F95004E0C37 /* WMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGridView.m; sourceTree = "<group>"; };
+		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		BEC9967E18B403580031A45F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BEF910561882C16500F50441 /* Pixel Styles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Styles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF910591882C16500F50441 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEF9105B1882C16500F50441 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -320,6 +323,8 @@
 				BE4E054818A68F95004E0C37 /* WMGridView.m */,
 				BEF9111E1882C4E200F50441 /* WMServicesController.h */,
 				BEF9111F1882C4E200F50441 /* WMServicesController.m */,
+				BEC9967D18B403570031A45F /* SettingsViewController.h */,
+				BEC9967E18B403580031A45F /* SettingsViewController.m */,
 				BEF910AB1882C26A00F50441 /* TextStepperField */,
 				BEF911151882C2EE00F50441 /* SpectrumView */,
 				BEF910BD1882C26A00F50441 /* TouchViewController.h */,
@@ -457,6 +462,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "RGB Styles";
 				TargetAttributes = {
+					BEF910551882C16500F50441 = {
+						DevelopmentTeam = NS4Q9G859P;
+					};
 					BEF910791882C16500F50441 = {
 						TestTargetID = BEF910551882C16500F50441;
 					};
@@ -530,6 +538,7 @@
 				BEF911071882C26A00F50441 /* WMServiceModeSetting.m in Sources */,
 				BEF9111A1882C2EE00F50441 /* SpectrumView.m in Sources */,
 				BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */,
+				BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */,
 				BEF910E91882C26A00F50441 /* GCDAsyncSocket.m in Sources */,
 				BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */,
 				BEF9111B1882C2EE00F50441 /* WMTouchDictionary.m in Sources */,
@@ -680,10 +689,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Styles/Pixel Styles-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -693,10 +705,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pixel Styles/Pixel Styles-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Styles/Pixel Styles-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -12,6 +12,8 @@
 #import "WMServicesController.h"
 #import "WMTableViewCell.h"
 
+#import "UIViewController+CWPopup.h"
+
 #define __DEBUG__
 #ifdef __DEBUG__
 #   define LOG(fmt, ...)   NSLog(@"%d (%s): " fmt, __LINE__, __func__, ## __VA_ARGS__)
@@ -52,8 +54,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    //[mServicesController clearSelection];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -113,6 +113,7 @@
 
 - (void)didLostConnectionToService:(WMService *)service
 {
+    [self.navigationController dismissPopupViewControllerAnimated:NO completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
     [self.tableView reloadData];
 }
@@ -188,12 +189,8 @@
     if (service.connected) {
         cell.imageView.image = [UIImage imageNamed:@"TcpOk"];
         cell.detailTextLabel.text = service.subtitle;
-        
-        if (service.selected) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
+
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     // Connecting
     else if (service.connecting) {

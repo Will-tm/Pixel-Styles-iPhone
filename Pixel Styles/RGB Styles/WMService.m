@@ -40,7 +40,6 @@
     {
         _connected = NO;
         _connecting = NO;
-        _selected = NO;
         _delegate = delegate;
         _netService = service;
         _ip = [NSKeyedArchiver archivedDataWithRootObject:_netService.addresses];
@@ -51,6 +50,11 @@
         _retryCount = 0;
     }
     return self;
+}
+
+- (void)keepAlive
+{
+    [self sendMessage:@"alive"];
 }
 
 - (NSDictionary *)dictionaryFromTXTRecordData:(NSData *)txtData
@@ -218,6 +222,8 @@
     if (_tryConnectWithCompletionBlock) {
         _tryConnectWithCompletionBlock(NO);
     }
+    
+    [_keepAliveTimer invalidate];
 }
 
 - (NSData*)gunzip:(NSData*)data
@@ -289,6 +295,8 @@
                 if (_tryConnectWithCompletionBlock) {
                     _tryConnectWithCompletionBlock(YES);
                 }
+                
+                _keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(keepAlive) userInfo:nil repeats:YES];
             }
             break;
             

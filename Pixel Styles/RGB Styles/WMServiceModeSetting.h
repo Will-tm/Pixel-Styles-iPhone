@@ -10,19 +10,8 @@
 
 typedef enum
 {
-    ihmTrackbar,
-    ihmCheckbox,
-    ihmColorSelector,
-    ihmEdit,
-    ihmCustomCombobox,
-    ihmSpinEdit,
-    ihmiPhoneEqualizer,
-    ihmButton,
-    ihmLabel,
-    ihmScore,
-    ihmCamera,
-    ihmLogTrackbar
-}ihm_type;
+	ihmSpinEdit, ihmSpinEditFloat, ihmCheckbox, ihmSegmentedControl, ihmTrackbar, ihmLogTrackbar, ihmButton, ihmColorSelector
+} ihm_type;
 
 
 @interface WMServiceModeSetting : NSObject
