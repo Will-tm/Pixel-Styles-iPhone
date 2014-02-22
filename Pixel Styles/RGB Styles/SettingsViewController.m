@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface SettingsViewController ()
 
 @end
@@ -89,7 +91,7 @@
     {
         case ihmCheckbox:
         {
-            UISwitch *checkbox         = [[UISwitch         alloc] initWithFrame:CGRectMake(253, 8,   0,  0)];
+            UISwitch *checkbox = [[UISwitch alloc] initWithFrame:CGRectMake(253, 8,   0,  0)];
             [checkbox addTarget:self action:@selector(checkboxAction:) forControlEvents:UIControlEventValueChanged];
             checkbox.on = [setting.value boolValue];
             checkbox.tag = indexPath.row;
@@ -99,7 +101,7 @@
             
         case ihmSegmentedControl:
         {
-            NSArray *segmentItems;
+            //NSArray *segmentItems;
             UISegmentedControl *segmentedControl;
             segmentedControl.tag = indexPath.row;
             [cell addSubview:segmentedControl];
@@ -125,7 +127,7 @@
         case ihmLogTrackbar:
         case ihmTrackbar:
         {
-            UISlider *trackbar         = [[UISlider         alloc] initWithFrame:CGRectMake(180, 8, 120, 30)];
+            UISlider *trackbar = [[UISlider alloc] initWithFrame:CGRectMake(180, 8, 120, 30)];
             trackbar.tag = indexPath.row;
             
             [trackbar addTarget:self action:@selector(trackbarChanged:) forControlEvents:UIControlEventValueChanged];
@@ -145,7 +147,17 @@
             
         case ihmColorSelector:
         {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(275, 8, 30, 30)];
             
+            UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, [UIScreen mainScreen].scale);
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextAddEllipseInRect(context, imageView.bounds);
+            CGContextSetFillColorWithColor(context, UIColorFromRGB((long)[setting.value integerValue]).CGColor);
+            CGContextFillPath(context);
+            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+    
+            [cell addSubview:imageView];
         }
             break;
             
@@ -158,28 +170,14 @@
 
 - (void)checkboxAction:(UISwitch*)sender
 {
-    //WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
-    //[setting updateValue:[NSString stringWithFormat:@"%i", sender.on]];
-    [self updateSettingsAtIndex:sender.tag withValue:[NSString stringWithFormat:@"%i", sender.on]];
+    WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
+    [setting updateValue:[NSString stringWithFormat:@"%i", sender.on]];
 }
 
 - (void)trackbarChanged:(UISlider*)sender
 {
-    //WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
-    //[setting updateValue:[NSString stringWithFormat:@"%f", sender.value]];
-    [self updateSettingsAtIndex:sender.tag withValue:[NSString stringWithFormat:@"%f", sender.value]];
-}
-
-- (void)updateSettingsAtIndex:(NSInteger)index withValue:(NSString *)value
-{
-    for (WMService *service in _services) {
-        for (WMServiceMode *mode in service.modes) {
-            if ([mode.name isEqualToString: _mode.name]) {
-                WMServiceModeSetting *setting = [mode.settings objectAtIndex:index];
-                [setting updateValue:value];
-            }
-        }
-    }
+    WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
+    [setting updateValue:[NSString stringWithFormat:@"%f", sender.value]];
 }
 
 @end
