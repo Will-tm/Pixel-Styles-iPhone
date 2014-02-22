@@ -280,7 +280,7 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
         [self addBackgroundView];
 
         UIView *blurView = objc_getAssociatedObject(self, &CWBlurViewKey);
-        UIView *clearView = objc_getAssociatedObject(self, &CWClearViewKey);
+        //UIView *clearView = objc_getAssociatedObject(self, &CWClearViewKey);
         
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBlurView:)];
         [blurView setUserInteractionEnabled:YES];
