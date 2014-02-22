@@ -103,6 +103,7 @@ UIEdgeInsets insetButtonImage={13,13,13,13};
     self.textField.borderStyle = UITextBorderStyleNone;
     self.textField.placeholder = [self getPlaceholderText];
     self.textField.inputView = nil;
+    self.textField.textAlignment = NSTextAlignmentCenter;
     [self.textField setKeyboardType:UIKeyboardTypeDecimalPad];
     CGSize sizeField= [self.textField sizeThatFits:BFStepperButton];
     self.textField.frame = CGRectMake(BFStepperButton.width+5, (BFStepperButton.height - sizeField.height)/2,self.frame.size.width - (BFStepperButton.width*2)-10, sizeField.height);
