@@ -13,7 +13,6 @@
 @interface SettingsViewController : UITableViewController
 
 @property (nonatomic) WMService *service;
-@property (nonatomic) NSArray *services;
 @property (nonatomic) WMServiceMode *mode;
 @property (nonatomic, strong) UIImageView *livePreview;
 

@@ -11,18 +11,13 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface SettingsViewController ()
+{
+    NSMutableDictionary *_sections;
+}
 
 @end
 
 @implementation SettingsViewController
-
-- (void)setServices:(NSArray *)services
-{
-    _services = services;
-    if (services != nil && services.count) {
-        _service = services[0];
-    }
-}
 
 - (void)viewDidLoad
 {
@@ -41,6 +36,15 @@
 - (void)setMode:(WMServiceMode *)mode
 {
     _mode = mode;
+    
+    _sections = [NSMutableDictionary new];
+    for (WMServiceModeSetting *setting in _mode.settings) {
+        if (![_sections valueForKey:setting.section]) {
+            [_sections setValue:@(1) forKey:setting.section];
+        } else {
+            [_sections setValue:@(((NSNumber*)[_sections objectForKey:setting.section]).intValue + 1) forKey:setting.section];
+        }
+    }
     [self.tableView reloadData];
 }
 
@@ -51,7 +55,7 @@
 }
 
 #pragma mark - Table view data source
-
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     _livePreview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10.0)];
@@ -67,25 +71,44 @@
 {
     return 20.0;
 }
-
+*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return _sections.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[_sections allKeys] objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _mode.settings.count;
+    return ((NSNumber*)[_sections objectForKey:[[_sections allKeys] objectAtIndex:section]]).intValue;
+}
+
+- (NSInteger)settingIndexForIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger index = 0;
+    for (NSInteger i = 0; i < indexPath.section; i++) {
+        index += ((NSNumber*)[_sections objectForKey:[[_sections allKeys] objectAtIndex:i]]).integerValue;
+    }
+    return indexPath.row+index;
+}
+
+- (WMServiceModeSetting *)settingForIndexPath:(NSIndexPath *)indexPath
+{
+    return [_mode.settings objectAtIndex:[self settingIndexForIndexPath:indexPath]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SettingCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    WMServiceModeSetting *setting = [_mode.settings objectAtIndex:indexPath.row];
-    
+
+    WMServiceModeSetting *setting = [self settingForIndexPath:indexPath];
     cell.textLabel.text = setting.caption;
+    NSInteger index = [self settingIndexForIndexPath:indexPath];
     
     switch (setting.kind)
     {
@@ -94,41 +117,41 @@
             UISwitch *checkbox = [[UISwitch alloc] initWithFrame:CGRectMake(253, 8,   0,  0)];
             [checkbox addTarget:self action:@selector(checkboxAction:) forControlEvents:UIControlEventValueChanged];
             checkbox.on = [setting.value boolValue];
-            checkbox.tag = indexPath.row;
+            checkbox.tag = index;
             [cell addSubview:checkbox];
         }
-            break;
+        break;
             
         case ihmSegmentedControl:
         {
             //NSArray *segmentItems;
             UISegmentedControl *segmentedControl;
-            segmentedControl.tag = indexPath.row;
+            segmentedControl.tag = index;
             [cell addSubview:segmentedControl];
         }
-            break;
+        break;
             
         case ihmSpinEdit:
-        {
-            TextStepperField *spinEdit = [[TextStepperField alloc] initWithFrame:CGRectMake(180, 8, 120, 27)];
-            spinEdit.tag = indexPath.row;
-            [cell addSubview:spinEdit];
-        }
-            break;
-            
         case ihmSpinEditFloat:
         {
             TextStepperField *spinEdit = [[TextStepperField alloc] initWithFrame:CGRectMake(180, 8, 120, 27)];
-            spinEdit.tag = indexPath.row;
+            [spinEdit addTarget:self action:@selector(spinEditDidStep:) forControlEvents:UIControlEventValueChanged];
+            spinEdit.NumDecimals = 0;
+            spinEdit.IsEditableTextField = NO;
+            spinEdit.Minimum = setting.minValue;
+            spinEdit.Maximum = setting.maxValue;
+            spinEdit.Step = 1.0f;
+            spinEdit.Current = [setting.value floatValue];
+            spinEdit.tag = index;
             [cell addSubview:spinEdit];
         }
-            break;
+        break;
             
         case ihmLogTrackbar:
         case ihmTrackbar:
         {
             UISlider *trackbar = [[UISlider alloc] initWithFrame:CGRectMake(180, 8, 120, 30)];
-            trackbar.tag = indexPath.row;
+            trackbar.tag = index;
             
             [trackbar addTarget:self action:@selector(trackbarChanged:) forControlEvents:UIControlEventValueChanged];
             trackbar.maximumValue = setting.maxValue;
@@ -137,13 +160,13 @@
             
             [cell addSubview:trackbar];
         }
-            break;
+        break;
             
         case ihmButton:
         {
             
         }
-            break;
+        break;
             
         case ihmColorSelector:
         {
@@ -159,7 +182,7 @@
     
             [cell addSubview:imageView];
         }
-            break;
+        break;
             
     }
     
@@ -178,6 +201,12 @@
 {
     WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
     [setting updateValue:[NSString stringWithFormat:@"%f", sender.value]];
+}
+
+- (void)spinEditDidStep:(TextStepperField *)sender
+{
+    WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
+    [setting updateValue:[NSString stringWithFormat:@"%f", sender.Current]];
 }
 
 @end
