@@ -36,7 +36,7 @@
 - (void)didUpdateLivePreview:(NSNotification *)notification
 {
     _livePreviewImage = [notification.userInfo objectForKey:@"image"];
-    liveBackground.image = [[_livePreviewImage imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:_livePreviewBlurRadius withTintColor:[UIColor colorWithWhite:1.0 alpha:_livePreviewAlpha]];
+    liveBackground.image = [[_livePreviewImage imageByReplacingColor:0 withColor:0xEEEEEE] drn_boxblurImageWithBlur:_livePreviewBlurRadius withTintColor:[UIColor colorWithWhite:1.0 alpha:_livePreviewAlpha]];
 }
 
 @end
