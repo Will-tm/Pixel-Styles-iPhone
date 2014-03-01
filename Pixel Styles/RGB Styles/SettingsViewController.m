@@ -17,22 +17,11 @@
 @interface SettingsViewController ()
 {
     WMDictionary *_sections;
-    UIImageView *liveBackground;
 }
 
 @end
 
 @implementation SettingsViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
-
-    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
-    self.tableView.backgroundView = liveBackground;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -54,11 +43,6 @@
         }
     }
     [self.tableView reloadData];
-}
-
-- (void)didUpdateLivePreview:(NSNotification *)notification
-{
-    liveBackground.image = [[[notification.userInfo objectForKey:@"image"] imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.1 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.7]];
 }
 
 #pragma mark - Table view data source

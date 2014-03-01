@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WMLiveTableViewController.h"
 
-@interface AboutViewController : UITableViewController
+@interface AboutViewController : WMLiveTableViewController
 
 @end

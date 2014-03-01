@@ -10,6 +10,7 @@
 		BE454B7218C1DA5C00A15204 /* WMDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7118C1DA5C00A15204 /* WMDictionary.m */; };
 		BE454B7518C1DCCF00A15204 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7418C1DCCF00A15204 /* AboutViewController.m */; };
 		BE454B7818C1DEB300A15204 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */; };
+		BE454B7C18C1F6D100A15204 /* WMLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */; };
 		BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */; };
 		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
@@ -90,6 +91,8 @@
 		BE454B7618C1DEB300A15204 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
 		BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
 		BE454B7918C1E26E00A15204 /* UIImage+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		BE454B7A18C1F6D100A15204 /* WMLiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLiveTableViewController.h; sourceTree = "<group>"; };
+		BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLiveTableViewController.m; sourceTree = "<group>"; };
 		BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
 		BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
 		BE4E054118A66242004E0C37 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveViewController.h; path = "Pixel Styles/LiveViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -353,6 +356,8 @@
 		BEF9109D1882C26A00F50441 /* RGB Styles */ = {
 			isa = PBXGroup;
 			children = (
+				BE454B7A18C1F6D100A15204 /* WMLiveTableViewController.h */,
+				BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */,
 				BE4E054718A68F95004E0C37 /* WMGridView.h */,
 				BE4E054818A68F95004E0C37 /* WMGridView.m */,
 				BEF9111E1882C4E200F50441 /* WMServicesController.h */,
@@ -564,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF911111882C26A00F50441 /* SBJsonStreamWriter.m in Sources */,
+				BE454B7C18C1F6D100A15204 /* WMLiveTableViewController.m in Sources */,
 				BEF911061882C26A00F50441 /* WMServiceMode.m in Sources */,
 				BEF9110B1882C26A00F50441 /* SBJsonParser.m in Sources */,
 				BEF9106A1882C16500F50441 /* AppDelegate.m in Sources */,

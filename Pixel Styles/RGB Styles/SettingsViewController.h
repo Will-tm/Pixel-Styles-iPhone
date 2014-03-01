@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "WMBonjourController.h"
 #import "TextStepperField/TextStepperField.h"
+#import "WMLiveTableViewController.h"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : WMLiveTableViewController
 
 @property (nonatomic) WMService *service;
 @property (nonatomic) WMServiceMode *mode;

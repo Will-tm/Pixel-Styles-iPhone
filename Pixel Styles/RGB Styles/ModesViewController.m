@@ -13,13 +13,10 @@
 
 #import "UIImage+ScaledToSize.h"
 #import "UIViewController+CWPopup.h"
-#import "UIImage+BoxBlur.h"
-#import "UIImage+Additions.h"
 
 @interface ModesViewController ()
 {
     LiveViewController *liveViewController;
-    UIImageView *liveBackground;
 }
 
 @end
@@ -29,13 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
-    
+
     liveViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"liveView"];
-    
-    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
-    self.tableView.backgroundView = liveBackground;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,18 +55,17 @@
 
 - (void)didUpdateLivePreview:(NSNotification *)notification
 {
-    NSDictionary *userInfo = notification.userInfo;
-  
+    [super didUpdateLivePreview:notification];
+
     WMServiceMode *mode = [_service.modes objectAtIndex:_service.activeModeIndex];
-    mode.image = [userInfo objectForKey:@"image"];
+    mode.image = self.livePreviewImage;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow: _service.activeModeIndex inSection: 0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
     
-    [liveViewController updateWithImage:mode.image];
-    liveBackground.image = [[mode.image imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.1 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.7]];
+    [liveViewController updateWithImage:self.livePreviewImage];
 }
 
 #pragma mark - Table view data source
@@ -87,6 +78,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _service.modes.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Modes availables";
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
+        UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *)view;
+        tableViewHeaderFooterView.backgroundView = [[UIView alloc] initWithFrame:view.frame];
+        tableViewHeaderFooterView.backgroundView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.5];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

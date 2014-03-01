@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WMBonjourController.h"
+#import "WMLiveTableViewController.h"
 
 #define CELL_IMAGE_VIEW_TAG             (101)
 #define CELL_IMAGE_VIEW_HEIGH           (5)
 #define CELL_IMAGE_VIEW_INACTIVE_ALPHA  (0.3)
 
-@interface ModesViewController : UITableViewController <UIGestureRecognizerDelegate>
+@interface ModesViewController : WMLiveTableViewController <UIGestureRecognizerDelegate>
 
 @property (nonatomic) WMService *service;
 

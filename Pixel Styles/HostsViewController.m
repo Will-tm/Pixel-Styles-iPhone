@@ -66,7 +66,6 @@
 
 - (IBAction)showAbout:(id)sender
 {
-    
     UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
     [self.navigationController presentViewController:ctrl animated:YES completion:nil];
 }
@@ -184,6 +183,20 @@
     
     [self setDismissButtonIconForSelectedServicesCount:mServicesController.selectedServices.count];
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
+        UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *)view;
+        tableViewHeaderFooterView.backgroundView = [[UIView alloc] initWithFrame:view.frame];
+        tableViewHeaderFooterView.backgroundView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.5];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return mServicesController.services.count > 0 ? @"Discovered devices" : nil;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

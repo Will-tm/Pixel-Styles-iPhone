@@ -8,27 +8,15 @@
 
 #import "AboutViewController.h"
 
-#import "UIImage+BoxBlur.h"
-#import "UIImage+Additions.h"
-
 @interface AboutViewController ()
 {
     UIButton *contactButton;
     UILabel *contactLabel;
-    UIImageView *liveBackground;
 }
 
 @end
 
 @implementation AboutViewController
-
-- (void)awakeFromNib
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
-    
-    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
-    self.tableView.backgroundView = liveBackground;
-}
 
 - (void)viewDidLoad
 {
@@ -69,16 +57,13 @@
         [view addSubview:contactLabel];
         view;
     });
+    
+    self.livePreviewAlpha = 0.8;
 }
 
 - (void)dismiss
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)didUpdateLivePreview:(NSNotification *)notification
-{
-    liveBackground.image = [[[notification.userInfo objectForKey:@"image"] imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.2 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.8]];
 }
 
 #pragma mark -

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "WMBonjourController.h"
 #import "SpectrumView.h"
+#import "WMLiveTableViewController.h"
 
-@interface TouchViewController : UITableViewController
+@interface TouchViewController : WMLiveTableViewController
 
 @property (nonatomic) WMService *service;
 @property (nonatomic) WMServiceMode *mode;

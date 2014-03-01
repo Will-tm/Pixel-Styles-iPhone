@@ -2,7 +2,7 @@
 
 Pixel Styles is a client application which provide easy user interaction with an embedded linux host over a wireless Wi-Fi connection.
 
-![Screenshot](http://download.will-tm.com/github/demo.png)
+![Screenshot](http://download.will-tm.com/github/demo2.png)
 
 ## Authors
 
