@@ -15,6 +15,7 @@
 		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
 		BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054818A68F95004E0C37 /* WMGridView.m */; };
+		BEC2E86818C25F1D00067F55 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */; };
 		BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC9967E18B403580031A45F /* SettingsViewController.m */; };
 		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
 		BEF9105C1882C16500F50441 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105B1882C16500F50441 /* CoreGraphics.framework */; };
@@ -101,8 +102,10 @@
 		BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		BE4E054718A68F95004E0C37 /* WMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGridView.h; sourceTree = "<group>"; };
 		BE4E054818A68F95004E0C37 /* WMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGridView.m; sourceTree = "<group>"; };
-		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		BEC9967E18B403580031A45F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerViewController.h; path = "Pixel Styles/RGB Styles/ColorPickerViewController.h"; sourceTree = "<group>"; };
+		BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = "Pixel Styles/RGB Styles/ColorPickerViewController.m"; sourceTree = "<group>"; };
+		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Pixel Styles/RGB Styles/SettingsViewController.h"; sourceTree = "<group>"; };
+		BEC9967E18B403580031A45F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Pixel Styles/RGB Styles/SettingsViewController.m"; sourceTree = "<group>"; };
 		BEF910561882C16500F50441 /* Pixel Styles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Styles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF910591882C16500F50441 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEF9105B1882C16500F50441 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,8 +149,8 @@
 		BEF910BA1882C26A00F50441 /* UIStepperRightPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIStepperRightPressed@2x.png"; sourceTree = "<group>"; };
 		BEF910BB1882C26A00F50441 /* TextStepperField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextStepperField.h; sourceTree = "<group>"; };
 		BEF910BC1882C26A00F50441 /* TextStepperField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStepperField.m; sourceTree = "<group>"; };
-		BEF910BD1882C26A00F50441 /* TouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchViewController.h; sourceTree = "<group>"; };
-		BEF910BE1882C26A00F50441 /* TouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchViewController.m; sourceTree = "<group>"; };
+		BEF910BD1882C26A00F50441 /* TouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchViewController.h; path = "Pixel Styles/RGB Styles/TouchViewController.h"; sourceTree = "<group>"; };
+		BEF910BE1882C26A00F50441 /* TouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchViewController.m; path = "Pixel Styles/RGB Styles/TouchViewController.m"; sourceTree = "<group>"; };
 		BEF910BF1882C26A00F50441 /* WMBonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMBonjourController.h; sourceTree = "<group>"; };
 		BEF910C01882C26A00F50441 /* WMBonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMBonjourController.m; sourceTree = "<group>"; };
 		BEF910C51882C26A00F50441 /* WMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMService.h; sourceTree = "<group>"; };
@@ -240,8 +243,6 @@
 		BEF9104D1882C16500F50441 = {
 			isa = PBXGroup;
 			children = (
-				BE454B7318C1DCCF00A15204 /* AboutViewController.h */,
-				BE454B7418C1DCCF00A15204 /* AboutViewController.m */,
 				BE454B6E18C1DA3200A15204 /* Additional Classes */,
 				BEF910911882C26A00F50441 /* Additions */,
 				BEF9109B1882C26A00F50441 /* HostsViewController.h */,
@@ -250,6 +251,14 @@
 				BEF911281882D14D00F50441 /* ModesViewController.m */,
 				BE4E054118A66242004E0C37 /* LiveViewController.h */,
 				BE4E054218A66242004E0C37 /* LiveViewController.m */,
+				BE454B7318C1DCCF00A15204 /* AboutViewController.h */,
+				BE454B7418C1DCCF00A15204 /* AboutViewController.m */,
+				BEC9967D18B403570031A45F /* SettingsViewController.h */,
+				BEC9967E18B403580031A45F /* SettingsViewController.m */,
+				BEF910BD1882C26A00F50441 /* TouchViewController.h */,
+				BEF910BE1882C26A00F50441 /* TouchViewController.m */,
+				BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */,
+				BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */,
 				BEF9109D1882C26A00F50441 /* RGB Styles */,
 				BEF9105F1882C16500F50441 /* Pixel Styles */,
 				BEF910811882C16500F50441 /* Pixel StylesTests */,
@@ -362,12 +371,8 @@
 				BE4E054818A68F95004E0C37 /* WMGridView.m */,
 				BEF9111E1882C4E200F50441 /* WMServicesController.h */,
 				BEF9111F1882C4E200F50441 /* WMServicesController.m */,
-				BEC9967D18B403570031A45F /* SettingsViewController.h */,
-				BEC9967E18B403580031A45F /* SettingsViewController.m */,
 				BEF910AB1882C26A00F50441 /* TextStepperField */,
 				BEF911151882C2EE00F50441 /* SpectrumView */,
-				BEF910BD1882C26A00F50441 /* TouchViewController.h */,
-				BEF910BE1882C26A00F50441 /* TouchViewController.m */,
 				BEF910BF1882C26A00F50441 /* WMBonjourController.h */,
 				BEF910C01882C26A00F50441 /* WMBonjourController.m */,
 				BEF910C51882C26A00F50441 /* WMService.h */,
@@ -575,6 +580,7 @@
 				BEF9106A1882C16500F50441 /* AppDelegate.m in Sources */,
 				BEF9110F1882C26A00F50441 /* SBJsonStreamParserState.m in Sources */,
 				BEF911051882C26A00F50441 /* WMService.m in Sources */,
+				BEC2E86818C25F1D00067F55 /* ColorPickerViewController.m in Sources */,
 				BEF911071882C26A00F50441 /* WMServiceModeSetting.m in Sources */,
 				BEF9111A1882C2EE00F50441 /* SpectrumView.m in Sources */,
 				BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */,
