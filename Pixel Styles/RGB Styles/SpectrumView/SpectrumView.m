@@ -35,6 +35,7 @@
 - (void)awakeFromNib
 {            
     acceptTouch = YES;
+    self.maxTouchCount = 10;
     self.userInteractionEnabled = YES;
  
     spectrumImage = [UIImage imageNamed:@"Spectrum"];
@@ -247,7 +248,7 @@
                     colorString = [NSString stringWithFormat:@"%@_%u",colorString,(unsigned int)color];
                 }
                 
-                if (fingerView == NULL)
+                if (fingerView == NULL && _touchDictionary.count < _maxTouchCount)
                 {
                     fingerView = [self fingerViewAtPoint:location withColor:currentColor];
                   

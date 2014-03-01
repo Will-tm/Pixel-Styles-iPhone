@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "ColorPickerViewController.h"
 
 #import "WMDictionary.h"
 #import "UIImage+BoxBlur.h"
@@ -94,6 +95,8 @@
             checkbox.on = [setting.value boolValue];
             checkbox.tag = index;
             [cell addSubview:checkbox];
+            
+            NSLog(@"%@",NSStringFromCGRect(checkbox.frame));
         }
         break;
             
@@ -145,17 +148,13 @@
             
         case ihmColorSelector:
         {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(275, 8, 30, 30)];
-            
-            UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, [UIScreen mainScreen].scale);
-            CGContextRef context = UIGraphicsGetCurrentContext();
-            CGContextAddEllipseInRect(context, imageView.bounds);
-            CGContextSetFillColorWithColor(context, UIColorFromRGB((long)[setting.value integerValue]).CGColor);
-            CGContextFillPath(context);
-            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-    
-            [cell addSubview:imageView];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [button addTarget:self action:@selector(buttonColorSelectorPressed:) forControlEvents:UIControlEventTouchDown];
+            button.frame = CGRectMake(253, 8, 51, 31);
+            button.tag = index;
+            button.backgroundColor = UIColorFromRGB((long)[setting.value integerValue]);
+            button.layer.cornerRadius = button.bounds.size.height / 2.0;
+            [cell addSubview:button];
         }
         break;
             
@@ -182,6 +181,25 @@
 {
     WMServiceModeSetting *setting = [_mode.settings objectAtIndex:sender.tag];
     [setting updateValue:[NSString stringWithFormat:@"%f", sender.Current]];
+}
+
+- (void)buttonColorSelectorPressed:(UIButton *)sender
+{
+    ColorPickerViewController *colorPickerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"colorPickerViewController"];
+    colorPickerViewController.delegate = self;
+    colorPickerViewController.tag = sender.tag;
+    colorPickerViewController.currentColor = sender.backgroundColor;
+    colorPickerViewController.button = sender;
+    [self.navigationController pushViewController:colorPickerViewController animated:YES];
+}
+
+- (void)colorPicker:(ColorPickerViewController *)colorPicker didSelectColor:(UIColor *)color
+{
+    colorPicker.button.backgroundColor = color;
+    WMServiceModeSetting *setting = [_mode.settings objectAtIndex:colorPicker.tag];
+    const CGFloat *components = CGColorGetComponents(color.CGColor);
+    UInt32 colorInt = components[2]*255*256*256+components[1]*255*256+components[0]*255;
+    [setting updateValue:[NSString stringWithFormat:@"%d", colorInt]];
 }
 
 @end

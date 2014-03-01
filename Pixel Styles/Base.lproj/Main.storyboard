@@ -253,6 +253,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="a7D-wZ-npt"/>
+                    <connections>
+                        <segue destination="PCy-vm-Xmr" kind="push" identifier="showColorPicker" id="KIL-Ov-a1p"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rws-8l-a6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,6 +300,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcT-6x-Qqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1479" y="395"/>
+        </scene>
+        <!--Color Picker View Controller - Touch-->
+        <scene sceneID="p05-sW-n2Z">
+            <objects>
+                <tableViewController storyboardIdentifier="colorPickerViewController" title="Touch" id="PCy-vm-Xmr" customClass="ColorPickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="484" sectionHeaderHeight="22" sectionFooterHeight="22" id="in6-uW-id9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell multipleTouchEnabled="YES" tag="50" contentMode="scaleToFill" restorationIdentifier="TouchCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TouchCell" id="5de-yA-45P">
+                                <rect key="frame" x="0.0" y="86" width="320" height="484"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="40" contentMode="center" tableViewCell="5de-yA-45P" id="wO3-ze-yeq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spectrum" translatesAutoresizingMaskIntoConstraints="NO" id="cph-vx-gIw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <view multipleTouchEnabled="YES" tag="50" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-pU-Wef" customClass="SpectrumView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PCy-vm-Xmr" id="2Vz-lK-TRm"/>
+                            <outlet property="delegate" destination="PCy-vm-Xmr" id="nbo-xj-icX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Touch" id="wBy-Tt-1vM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mNV-kc-Odo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1953" y="-267"/>
         </scene>
     </scenes>
     <resources>

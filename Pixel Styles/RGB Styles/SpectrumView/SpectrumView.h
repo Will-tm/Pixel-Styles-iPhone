@@ -40,6 +40,7 @@ typedef enum
 }
 
 @property (nonatomic, readwrite) BOOL acceptTouch;
+@property (nonatomic, readwrite) NSInteger maxTouchCount;
 
 - (UIColor*)colorAtX:(NSInteger)x y:(NSInteger)y;
 - (void)touchProcessing:(BOOL)shouldTransmitData;
