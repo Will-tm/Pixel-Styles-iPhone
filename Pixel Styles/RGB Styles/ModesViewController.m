@@ -13,10 +13,13 @@
 
 #import "UIImage+ScaledToSize.h"
 #import "UIViewController+CWPopup.h"
+#import "UIImage+BoxBlur.h"
+#import "UIImage+Additions.h"
 
 @interface ModesViewController ()
 {
     LiveViewController *liveViewController;
+    UIImageView *liveBackground;
 }
 
 @end
@@ -30,6 +33,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
     
     liveViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"liveView"];
+    
+    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
+    self.tableView.backgroundView = liveBackground;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,7 +63,6 @@
 
 - (void)didUpdateLivePreview:(NSNotification *)notification
 {
-    //NSLog(@"Got image");
     NSDictionary *userInfo = notification.userInfo;
   
     WMServiceMode *mode = [_service.modes objectAtIndex:_service.activeModeIndex];
@@ -69,6 +74,7 @@
     cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
     
     [liveViewController updateWithImage:mode.image];
+    liveBackground.image = [[mode.image imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.1 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.7]];
 }
 
 #pragma mark - Table view data source
@@ -127,6 +133,10 @@
     {
         cell.selected = YES;
     }
+    
+    UIView * selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    [selectedBackgroundView setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0.3]];
+    [cell setSelectedBackgroundView:selectedBackgroundView];
     
     return cell;
 }

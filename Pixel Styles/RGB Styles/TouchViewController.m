@@ -8,7 +8,13 @@
 
 #import "TouchViewController.h"
 
+#import "UIImage+BoxBlur.h"
+#import "UIImage+Additions.h"
+
 @interface TouchViewController ()
+{
+    UIImageView *liveBackground;
+}
 
 @end
 
@@ -19,6 +25,9 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
+    
+    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
+    self.tableView.backgroundView = liveBackground;
 }
 
 - (void)setMode:(WMServiceMode *)mode
@@ -31,6 +40,8 @@
 {
     NSDictionary *userInfo = notification.userInfo;
     _livePreview.image = [userInfo objectForKey:@"image"];
+    
+    liveBackground.image = [[_livePreview.image imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.2 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.0]];
 }
 
 #pragma mark - Table view data source

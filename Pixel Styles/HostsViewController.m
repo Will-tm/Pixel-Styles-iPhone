@@ -8,6 +8,7 @@
 
 #import "HostsViewController.h"
 #import "ModesViewController.h"
+#import "AboutViewController.h"
 
 #import "WMServicesController.h"
 #import "WMTableViewCell.h"
@@ -24,6 +25,7 @@
 @interface HostsViewController ()
 {
     WMServicesController *mServicesController;
+    AboutViewController *aboutViewController;
 }
 
 @end
@@ -33,6 +35,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    aboutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutViewController"];
 }
 
 - (void)viewDidLoad
@@ -42,10 +46,7 @@
     mServicesController = [WMServicesController sharedInstance];
     mServicesController.hostsViewControllerDelegate = self;
 
-    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchForServices)];
-    //buttonItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = buttonItem;
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchForServices)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self setDismissButtonIconForSelectedServicesCount:0];
@@ -61,6 +62,13 @@
     [super viewDidAppear:animated];
     
     [self searchForServices];
+}
+
+- (IBAction)showAbout:(id)sender
+{
+    
+    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
+    [self.navigationController presentViewController:ctrl animated:YES completion:nil];
 }
 
 - (void)searchForServices

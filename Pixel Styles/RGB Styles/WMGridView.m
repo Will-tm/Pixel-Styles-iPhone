@@ -20,10 +20,6 @@
         _size = size;
         [self setOpaque: NO];
         self.backgroundColor = [UIColor clearColor];
-        /*
-        self.layer.borderColor = [UIColor cyanColor].CGColor;
-        self.layer.borderWidth = 2.0;
-        self.layer.masksToBounds = YES;*/
     }
     return self;
 }

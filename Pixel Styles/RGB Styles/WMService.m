@@ -528,5 +528,4 @@
     return image;
 }
 
-
 @end

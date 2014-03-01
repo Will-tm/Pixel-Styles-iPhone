@@ -8,11 +8,16 @@
 
 #import "SettingsViewController.h"
 
+#import "WMDictionary.h"
+#import "UIImage+BoxBlur.h"
+#import "UIImage+Additions.h"
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface SettingsViewController ()
 {
-    NSMutableDictionary *_sections;
+    WMDictionary *_sections;
+    UIImageView *liveBackground;
 }
 
 @end
@@ -24,6 +29,9 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLivePreview:) name:@"didUpdateLivePreview" object:nil];
+
+    liveBackground = [[UIImageView alloc] initWithFrame:self.tableView.frame];
+    self.tableView.backgroundView = liveBackground;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -37,7 +45,7 @@
 {
     _mode = mode;
     
-    _sections = [NSMutableDictionary new];
+    _sections = [WMDictionary new];
     for (WMServiceModeSetting *setting in _mode.settings) {
         if (![_sections valueForKey:setting.section]) {
             [_sections setValue:@(1) forKey:setting.section];
@@ -50,28 +58,11 @@
 
 - (void)didUpdateLivePreview:(NSNotification *)notification
 {
-    NSDictionary *userInfo = notification.userInfo;
-    _livePreview.image = [userInfo objectForKey:@"image"];
+    liveBackground.image = [[[notification.userInfo objectForKey:@"image"] imageByReplacingColor:0 withColor:0xFFFFFF] drn_boxblurImageWithBlur:0.1 withTintColor:[UIColor colorWithWhite:1.0 alpha:0.7]];
 }
 
 #pragma mark - Table view data source
-/*
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    _livePreview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10.0)];
-    return _livePreview;
-}
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @" ";
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 20.0;
-}
-*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return _sections.count;

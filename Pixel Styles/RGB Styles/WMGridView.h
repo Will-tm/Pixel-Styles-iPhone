@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#define GRID_WIDTH  2.0
+#define GRID_WIDTH  1.0
 #define GRID_WITH_DIV_2 GRID_WIDTH/2.0
 
 @interface WMGridView : UIView

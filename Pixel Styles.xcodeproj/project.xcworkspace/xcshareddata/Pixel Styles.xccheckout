@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>108B615C-23B1-4DF5-8CA5-33D6FA5E2AB7</string>
+	<string>D64C2F71-2D9B-4E82-812F-4A47AE723FD2</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Pixel Styles</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F8F70B99-9846-4CF3-A249-077A82851CD6</key>
-		<string>ssh://git.will-tm.com/pixel-styles/pixel-styles-ios.git</string>
+		<key>DFFB67AF-2DA8-47BF-97A2-778B8250B542</key>
+		<string>https://github.com/Will-tm/Pixel-Styles-iPhone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Pixel Styles.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F8F70B99-9846-4CF3-A249-077A82851CD6</key>
+		<key>DFFB67AF-2DA8-47BF-97A2-778B8250B542</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://git.will-tm.com/pixel-styles/pixel-styles-ios.git</string>
+	<string>https://github.com/Will-tm/Pixel-Styles-iPhone.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F8F70B99-9846-4CF3-A249-077A82851CD6</string>
+	<string>DFFB67AF-2DA8-47BF-97A2-778B8250B542</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F8F70B99-9846-4CF3-A249-077A82851CD6</string>
+			<string>DFFB67AF-2DA8-47BF-97A2-778B8250B542</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iPhone</string>
 		</dict>

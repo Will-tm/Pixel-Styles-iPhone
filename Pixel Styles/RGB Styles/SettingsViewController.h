@@ -14,6 +14,5 @@
 
 @property (nonatomic) WMService *service;
 @property (nonatomic) WMServiceMode *mode;
-@property (nonatomic, strong) UIImageView *livePreview;
 
 @end

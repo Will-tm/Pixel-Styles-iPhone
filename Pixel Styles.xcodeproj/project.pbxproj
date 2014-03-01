@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE454B7218C1DA5C00A15204 /* WMDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7118C1DA5C00A15204 /* WMDictionary.m */; };
+		BE454B7518C1DCCF00A15204 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7418C1DCCF00A15204 /* AboutViewController.m */; };
+		BE454B7818C1DEB300A15204 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */; };
 		BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */; };
 		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
@@ -80,6 +83,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE454B7018C1DA5C00A15204 /* WMDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMDictionary.h; sourceTree = "<group>"; };
+		BE454B7118C1DA5C00A15204 /* WMDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMDictionary.m; sourceTree = "<group>"; };
+		BE454B7318C1DCCF00A15204 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = "Pixel Styles/AboutViewController.h"; sourceTree = "<group>"; };
+		BE454B7418C1DCCF00A15204 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = "Pixel Styles/AboutViewController.m"; sourceTree = "<group>"; };
+		BE454B7618C1DEB300A15204 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
+		BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		BE454B7918C1E26E00A15204 /* UIImage+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
 		BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
 		BE4E054118A66242004E0C37 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveViewController.h; path = "Pixel Styles/LiveViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -204,11 +214,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE454B6E18C1DA3200A15204 /* Additional Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE454B6F18C1DA5C00A15204 /* WMDictionary */,
+				BEF910D11882C26A00F50441 /* SBJSON */,
+				BEF910961882C26A00F50441 /* GCDAsyncSocket */,
+			);
+			name = "Additional Classes";
+			sourceTree = "<group>";
+		};
+		BE454B6F18C1DA5C00A15204 /* WMDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				BE454B7018C1DA5C00A15204 /* WMDictionary.h */,
+				BE454B7118C1DA5C00A15204 /* WMDictionary.m */,
+			);
+			name = WMDictionary;
+			path = "Pixel Styles/WMDictionary";
+			sourceTree = "<group>";
+		};
 		BEF9104D1882C16500F50441 = {
 			isa = PBXGroup;
 			children = (
+				BE454B7318C1DCCF00A15204 /* AboutViewController.h */,
+				BE454B7418C1DCCF00A15204 /* AboutViewController.m */,
+				BE454B6E18C1DA3200A15204 /* Additional Classes */,
 				BEF910911882C26A00F50441 /* Additions */,
-				BEF910961882C26A00F50441 /* GCDAsyncSocket */,
 				BEF9109B1882C26A00F50441 /* HostsViewController.h */,
 				BEF9109C1882C26A00F50441 /* HostsViewController.m */,
 				BEF911271882D14D00F50441 /* ModesViewController.h */,
@@ -216,7 +248,6 @@
 				BE4E054118A66242004E0C37 /* LiveViewController.h */,
 				BE4E054218A66242004E0C37 /* LiveViewController.m */,
 				BEF9109D1882C26A00F50441 /* RGB Styles */,
-				BEF910D11882C26A00F50441 /* SBJSON */,
 				BEF9105F1882C16500F50441 /* Pixel Styles */,
 				BEF910811882C16500F50441 /* Pixel StylesTests */,
 				BEF910581882C16500F50441 /* Frameworks */,
@@ -289,6 +320,8 @@
 		BEF910911882C26A00F50441 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				BE454B7618C1DEB300A15204 /* UIImage+BoxBlur.h */,
+				BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */,
 				BE4E054418A67801004E0C37 /* UIView+Hierarchy.h */,
 				BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */,
 				BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */,
@@ -299,6 +332,7 @@
 				BEF910931882C26A00F50441 /* NSMutableArray+QueueAdditions.m */,
 				BEF910941882C26A00F50441 /* UIDevice+Resolutions.h */,
 				BEF910951882C26A00F50441 /* UIDevice+Resolutions.m */,
+				BE454B7918C1E26E00A15204 /* UIImage+Additions.h */,
 			);
 			name = Additions;
 			path = "Pixel Styles/Additions";
@@ -547,6 +581,7 @@
 				BEF9110D1882C26A00F50441 /* SBJsonStreamParserAccumulator.m in Sources */,
 				BEF911011882C26A00F50441 /* TouchViewController.m in Sources */,
 				BEF911131882C26A00F50441 /* SBJsonStreamWriterState.m in Sources */,
+				BE454B7518C1DCCF00A15204 /* AboutViewController.m in Sources */,
 				BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */,
 				BEF9110A1882C26A00F50441 /* WMTableViewCell.m in Sources */,
 				BEF9110C1882C26A00F50441 /* SBJsonStreamParser.m in Sources */,
@@ -555,6 +590,7 @@
 				BEF911021882C26A00F50441 /* WMBonjourController.m in Sources */,
 				BEF910E71882C26A00F50441 /* NSMutableArray+QueueAdditions.m in Sources */,
 				BEF911101882C26A00F50441 /* SBJsonStreamTokeniser.m in Sources */,
+				BE454B7818C1DEB300A15204 /* UIImage+BoxBlur.m in Sources */,
 				BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */,
 				BEF910EA1882C26A00F50441 /* GCDAsyncUdpSocket.m in Sources */,
 				BEF911291882D14D00F50441 /* ModesViewController.m in Sources */,
@@ -563,6 +599,7 @@
 				BEF910EB1882C26A00F50441 /* HostsViewController.m in Sources */,
 				BEF911001882C26A00F50441 /* TextStepperField.m in Sources */,
 				BEF911141882C26A00F50441 /* SBJsonWriter.m in Sources */,
+				BE454B7218C1DA5C00A15204 /* WMDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
