@@ -10,7 +10,7 @@ Pixel Styles is a client application which provide easy user interaction with an
 
 ## License
 
-WMGaugeView is available under the MIT license.
+Pixel Styles is available under the MIT license.
 
 Copyright © 2014 William Markezana.
 
