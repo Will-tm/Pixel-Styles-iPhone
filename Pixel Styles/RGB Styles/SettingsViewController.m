@@ -95,8 +95,6 @@
             checkbox.on = [setting.value boolValue];
             checkbox.tag = index;
             [cell addSubview:checkbox];
-            
-            NSLog(@"%@",NSStringFromCGRect(checkbox.frame));
         }
         break;
             
