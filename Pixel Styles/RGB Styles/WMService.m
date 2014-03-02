@@ -427,43 +427,12 @@
     NSInteger height = [[jsonItems objectForKey:@"Height"] integerValue];
     NSString *pixels = [jsonItems objectForKey:@"Pixels"];
     
-    /*__weak */UIImage *image = [self imageFromBitmapString:pixels width:width height:height];
+    UIImage *image = [self parseImagePixels:pixels width:width height:height];
     if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)])
     {
         [_delegate didUpdateLivePreview:image];
     }
     image = nil;
-}
-
-- (UIImage *)imageFromBitmapString:(NSString*)string width:(NSInteger)width height:(NSInteger)height
-{
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    Byte *rawData = malloc(height * width * 4);
-    NSUInteger bytesPerPixel = 4;
-    NSUInteger bytesPerRow = bytesPerPixel * width;
-    NSUInteger bitsPerComponent = 8;
-    CGContextRef context = CGBitmapContextCreate(rawData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
-    CGColorSpaceRelease(colorSpace);
-    
-    int rawPtr = 0;
-    for (int i = 0; i < [string length]; i+=6)
-    {
-        NSString *colorStr = [string substringWithRange:NSMakeRange(i, 6)];
-        unsigned colorInt = 0;
-        NSScanner *scanner = [NSScanner scannerWithString:colorStr];
-        [scanner scanHexInt:&colorInt];
-        
-        rawData[rawPtr++] = colorInt & 0xFF;
-        rawData[rawPtr++] = colorInt >> 8;
-        rawData[rawPtr++] = colorInt >> 16;
-        rawPtr++;
-    }
-    
-    CGImageRef imgRef = CGBitmapContextCreateImage(context);
-    UIImage* img = [UIImage imageWithCGImage:imgRef];
-    CGImageRelease(imgRef);
-    CGContextRelease(context);
-    return img;
 }
 
 - (void)settingsValueDidUpdate:(WMServiceModeSetting*)setting forMode:(WMServiceMode*)mode
@@ -492,39 +461,38 @@
     image = nil;
 }
 
+- (NSData *)dataFromHexString:(NSString *)string
+{
+    string = [string lowercaseString];
+    NSMutableData *data= [NSMutableData new];
+    unsigned char whole_byte;
+    char byte_chars[3] = {'\0','\0','\0'};
+    NSInteger length = string.length;
+    int i = 0;
+    while (i < length-1) {
+        char c = [string characterAtIndex:i++];
+        byte_chars[0] = c;
+        byte_chars[1] = [string characterAtIndex:i++];
+        whole_byte = strtol(byte_chars, NULL, 16);
+        [data appendBytes:&whole_byte length:1];
+        if (i % 6 == 0) {
+            whole_byte = 0xFF;
+            [data appendBytes:&whole_byte length:1];
+        }
+    }
+    return data;
+}
+
 - (UIImage*)parseImagePixels:(NSString*)pixels width:(NSInteger)width height:(NSInteger)height
 {
     __weak UIImage *image = nil;
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)[self dataFromHexString:pixels]);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    Byte *rawData = malloc(height * width * 4);
-    NSUInteger bytesPerPixel = 4;
-    NSUInteger bytesPerRow = bytesPerPixel * width;
-    NSUInteger bitsPerComponent = 8;
-    CGContextRef context = CGBitmapContextCreate(rawData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
-    if(context)
-    {
-        CGColorSpaceRelease(colorSpace);
-        
-        int rawPtr = 0;
-        for (int i = 0; i < [pixels length]; i+=6)
-        {
-            NSString *colorStr = [pixels substringWithRange:NSMakeRange(i, 6)];
-            unsigned colorInt = 0;
-            NSScanner *scanner = [NSScanner scannerWithString:colorStr];
-            [scanner scanHexInt:&colorInt];
-            
-            rawData[rawPtr++] = colorInt & 0xFF;
-            rawData[rawPtr++] = colorInt >> 8;
-            rawData[rawPtr++] = colorInt >> 16;
-            rawPtr++;
-        }
-        
-        CGImageRef imgRef = CGBitmapContextCreateImage(context);
-        image = [UIImage imageWithCGImage:imgRef];
-        CGImageRelease(imgRef);
-        CGContextRelease(context);
-    }
-    free(rawData);
+    CGImageRef imgRef = CGImageCreate(width, height, 8, 32, 4 * width, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big, provider,  NULL, FALSE, kCGRenderingIntentDefault);
+    CFRelease(colorSpace);
+    CFRelease(provider);
+    image = [UIImage imageWithCGImage:imgRef];
+    CGImageRelease(imgRef);
     return image;
 }
 
