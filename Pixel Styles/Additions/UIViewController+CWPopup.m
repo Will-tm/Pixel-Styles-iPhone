@@ -151,15 +151,13 @@
 }
 @end
 
-#define ANIMATION_TIME 0.3f
-#define STATUS_BAR_SIZE 22
+#define ANIMATION_TIME 0.33f
 
 NSString const *CWPopupKey = @"CWPopupkey";
 NSString const *CWBlurViewKey = @"CWFadeViewKey";
-NSString const *CWClearViewKey = @"CWClearViewKey";
-NSString const *CWBackgroundViewKey = @"CWBackgroundViewKey";
 NSString const *CWUseBlurForPopup = @"CWUseBlurForPopup";
 NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
+NSString const *CWTimer = @"CWTimer";
 
 @implementation UIViewController (CWPopup)
 
@@ -191,24 +189,7 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
 }
 
 - (UIImage *)getBlurredImage:(UIImage *)imageToBlur {
-    return [imageToBlur applyBlurWithRadius:5.0f tintColor:[UIColor colorWithWhite:0.0 alpha:0.0] saturationDeltaFactor:1.0 maskImage:nil];
-}
-
-- (void)addBackgroundView {
-    UIView *view = [UIView new];
-    if (UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-        view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    } else {
-        view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-    }
-    view.alpha = 1.0f;
-    view.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:view];
-    [self.view sendSubviewToBack:view];
-    [view bringOneLevelUp];
-    [view bringOneLevelUp];
-    [self.view bringSubviewToFront:self.popupViewController.view];
-    objc_setAssociatedObject(self, &CWBackgroundViewKey, view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return [imageToBlur applyBlurWithRadius:5.0f tintColor:[UIColor colorWithWhite:0.0 alpha:0.5] saturationDeltaFactor:0.8 maskImage:nil];
 }
 
 - (void)addBlurView {
@@ -227,45 +208,36 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
     objc_setAssociatedObject(self, &CWBlurViewKey, blurView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)addClearView {
-    UIImageView *clearView = [UIImageView new];
-    clearView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    if (UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-        clearView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    } else {
-        clearView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-    }
-    clearView.alpha = 1.0f;
-    clearView.image = [self getScreenImage];
-    [self.view addSubview:clearView];
-    [self.view bringSubviewToFront:self.popupViewController.view];
-    [clearView sendOneLevelDown];
-    objc_setAssociatedObject(self, &CWClearViewKey, clearView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 #pragma mark - present/dismiss
 
-- (void)presentPopupViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+- (void)timerRefreshFire:(NSTimer *)sender
+{
+    return;
+    
+    UIImageView *blurView = objc_getAssociatedObject(self, &CWBlurViewKey);
+
+    if (UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+        blurView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    } else {
+        blurView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    }
+    blurView.image = [self getBlurredImage:[self getScreenImage]];
+}
+
+- (void)presentPopupViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag initialFrame:(CGRect)initialFrame completion:(void (^)(void))completion {
     if (self.popupViewController == nil) {
+        // refresh timer
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerRefreshFire:) userInfo:nil repeats:YES];
+        objc_setAssociatedObject(self, &CWTimer, timer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
         // initial setup
         self.popupViewController = viewControllerToPresent;
-        self.popupViewController.view.autoresizesSubviews = NO;
-        self.popupViewController.view.autoresizingMask = UIViewAutoresizingNone;
+        self.popupViewController.view.autoresizesSubviews = YES;
+        self.popupViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin;
         [self addChildViewController:viewControllerToPresent];
-
+        
         CGRect finalFrame = [self getPopupFrameForViewController:viewControllerToPresent];
-        // parallax setup if iOS7+
-        /*
-        UIInterpolatingMotionEffect *interpolationHorizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-        interpolationHorizontal.minimumRelativeValue = @-10.0;
-        interpolationHorizontal.maximumRelativeValue = @10.0;
-        UIInterpolatingMotionEffect *interpolationVertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-        interpolationHorizontal.minimumRelativeValue = @-10.0;
-        interpolationHorizontal.maximumRelativeValue = @10.0;
-        [self.popupViewController.view addMotionEffect:interpolationHorizontal];
-        [self.popupViewController.view addMotionEffect:interpolationVertical];
-        */
+
         // shadow setup
         viewControllerToPresent.view.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
         viewControllerToPresent.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -276,31 +248,25 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
         viewControllerToPresent.view.layer.cornerRadius = 5.0f;
         // blurview
         [self addBlurView];
-        [self addClearView];
-        [self addBackgroundView];
 
         UIView *blurView = objc_getAssociatedObject(self, &CWBlurViewKey);
-        //UIView *clearView = objc_getAssociatedObject(self, &CWClearViewKey);
-        
+
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBlurView:)];
         [blurView setUserInteractionEnabled:YES];
         [blurView addGestureRecognizer:tapGestureRecognizer];
         UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBlurView:)];
         [self.popupViewController.view setUserInteractionEnabled:YES];
         [self.popupViewController.view addGestureRecognizer:tapGestureRecognizer2];
-
+        
         [viewControllerToPresent beginAppearanceTransition:YES animated:flag];
-
+        
         // setup
         if (flag) { // animate
-            CGRect initialFrame = CGRectMake(finalFrame.origin.x, [UIScreen mainScreen].bounds.size.height + viewControllerToPresent.view.frame.size.height/2, finalFrame.size.width, finalFrame.size.height);
             viewControllerToPresent.view.frame = initialFrame;
             [self.view addSubview:viewControllerToPresent.view];
             [UIView animateWithDuration:ANIMATION_TIME delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 viewControllerToPresent.view.frame = finalFrame;
                 blurView.alpha = 1.0f;
-                //blurView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
-                //clearView.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 40);
             } completion:^(BOOL finished) {
                 [self.popupViewController didMoveToParentViewController:self];
                 [self.popupViewController endAppearanceTransition];
@@ -318,10 +284,16 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
     }
 }
 
+- (void)presentPopupViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    CGRect finalFrame = [self getPopupFrameForViewController:viewControllerToPresent];
+    CGRect initialFrame = CGRectMake(finalFrame.origin.x, [UIScreen mainScreen].bounds.size.height + viewControllerToPresent.view.frame.size.height/2, finalFrame.size.width, finalFrame.size.height);
+    
+    [self presentPopupViewController:viewControllerToPresent animated:flag initialFrame:initialFrame completion:completion];
+}
+
 - (void)dismissPopupViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    UIView *backgroundView = objc_getAssociatedObject(self, &CWBackgroundViewKey);
     UIView *blurView = objc_getAssociatedObject(self, &CWBlurViewKey);
-    UIView *clearView = objc_getAssociatedObject(self, &CWClearViewKey);
+    NSTimer *timer = objc_getAssociatedObject(self, &CWTimer);
     [self.popupViewController willMoveToParentViewController:nil];
     
     [self.popupViewController beginAppearanceTransition:NO animated:flag];
@@ -332,30 +304,26 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
             // uncomment the line below to have slight rotation during the dismissal
             // self.popupViewController.view.transform = CGAffineTransformMakeRotation(M_PI/6);
             blurView.alpha = 0.0f;
-            //blurView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-            //clearView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+
         } completion:^(BOOL finished) {
             [self.popupViewController removeFromParentViewController];
             [self.popupViewController endAppearanceTransition];
             [self.popupViewController.view removeFromSuperview];
             [blurView removeFromSuperview];
-            [clearView removeFromSuperview];
-            [backgroundView removeFromSuperview];
             self.popupViewController = nil;
             [completion invoke];
+            [timer invalidate];
+
         }];
     } else { // don't animate
         [self.popupViewController removeFromParentViewController];
         [self.popupViewController endAppearanceTransition];
         [self.popupViewController.view removeFromSuperview];
         [blurView removeFromSuperview];
-        [clearView removeFromSuperview];
-        [backgroundView removeFromSuperview];
-        self.popupViewController = nil; 
-        blurView = nil;
-        clearView = nil;
-        backgroundView = nil;
+        self.popupViewController = nil;
         [completion invoke];
+        [timer invalidate];
+        timer = nil;
     }
     // remove observer
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
