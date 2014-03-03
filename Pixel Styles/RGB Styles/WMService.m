@@ -452,9 +452,10 @@
     NSInteger width = [[jsonImage objectForKey:@"width"] integerValue];
     NSInteger height = [[jsonImage objectForKey:@"height"] integerValue];
     NSString *pixels = [jsonImage objectForKey:@"pixels"];
+    NSString *mode = [jsonImage objectForKey:@"mode"];
     
     __weak UIImage *image = [self parseImagePixels:pixels width:width height:height];
-    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)])
+    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)] && [mode isEqualToString:_activeModeName])
     {
         [_delegate didUpdateLivePreview:image];
     }
