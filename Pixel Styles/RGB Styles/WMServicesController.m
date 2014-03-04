@@ -141,6 +141,8 @@ WMServicesController *sharedInstance = nil;
     if (_searchForServicesWithConnectionBlock) {
         _searchForServicesWithConnectionBlock(service);
     }
+    
+    [self activateFistConnectedService];
 }
 
 - (void)serviceDidNotResolve:(WMService*)service
@@ -189,10 +191,53 @@ WMServicesController *sharedInstance = nil;
     } else {
         [service tryConnect];
     }
+    
+    [self activateFistConnectedService];
 }
 
-#pragma mark - Getters
+- (NSInteger)connectedServicesCount
+{
+    NSInteger result = 0;
+    
+    for (WMService *service in mBonjourController.services) {
+        if (service.connected)
+            result++;
+    }
+    
+    return result;
+}
 
+- (void)activateFistConnectedService
+{
+    BOOL hasActivedOneService = NO;
+    
+    if ([self connectedServicesCount] > 0) {
+        for (WMService *service in mBonjourController.services) {
+            if (service.connected && !hasActivedOneService) {
+                service.active = YES;
+                hasActivedOneService = YES;
+            }
+            else
+                service.active = NO;
+        }
+    }
+}
+
+- (void)activateService:(WMService *)serviceToActivate
+{
+    BOOL hasActivedOneService = NO;
+    
+    if ([self connectedServicesCount] > 0) {
+        for (WMService *service in mBonjourController.services) {
+            if (service == serviceToActivate) {
+                service.active = YES;
+                hasActivedOneService = YES;
+            }
+            else
+                service.active = NO;
+        }
+    }
+}
 
 
 @end

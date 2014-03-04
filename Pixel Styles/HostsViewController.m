@@ -48,13 +48,6 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchForServices)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self setDismissButtonIconForSelectedServicesCount:0];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -62,6 +55,7 @@
     [super viewDidAppear:animated];
     
     [self searchForServices];
+    //[mServicesController activateFistConnectedService];
 }
 
 - (IBAction)showAbout:(id)sender
@@ -74,7 +68,6 @@
 {
     [mServicesController searchForServicesWithCompletion:^(NSArray *services) {
         UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchForServices)];
-        //buttonItem.tintColor = [UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = buttonItem;
         [self.tableView reloadData];
         
@@ -99,30 +92,14 @@
     [self.tableView reloadData];
 }
 
-- (void)setDismissButtonIconForSelectedServicesCount:(NSInteger)count
-{
-    /*
-    if (count > 0) {
-        UIImage *image = [UIImage imageNamed:@"check"];
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-        button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );
-        [button setImage:image forState:UIControlStateNormal];
-        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-        self.navigationItem.leftBarButtonItem = buttonItem;
-    } else {
-        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissView)];
-        //buttonItem.tintColor = [UIColor whiteColor];
-        self.navigationItem.leftBarButtonItem = buttonItem;
-    }
-     */
-}
-
 - (void)didLostConnectionToService:(WMService *)service
 {
+    service.active = NO;
     [self.navigationController dismissPopupViewControllerAnimated:NO completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
     [self.tableView reloadData];
+    
+    [mServicesController activateFistConnectedService];
 }
 
 #pragma mark - Table View
@@ -152,6 +129,7 @@
     if (service != nil) {
         if (service.connected)
         {
+            [mServicesController activateService:service];
             ModesViewController *modesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"modesViewController"];
             modesViewController.service = service;
             [self.navigationController pushViewController:modesViewController animated:YES];
@@ -180,8 +158,7 @@
             }
         }
     }
-    
-    [self setDismissButtonIconForSelectedServicesCount:mServicesController.selectedServices.count];
+
     [self.tableView reloadData];
 }
 

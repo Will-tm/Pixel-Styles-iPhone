@@ -45,6 +45,7 @@
 @property (nonatomic) NSInteger retryCount;
 @property (nonatomic) NSInteger width;
 @property (nonatomic) NSInteger height;
+@property (nonatomic) BOOL active;
 
 - (id)initWithService:(NSNetService*)service delegate:(id)delegate;
 - (void)tryConnect;

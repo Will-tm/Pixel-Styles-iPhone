@@ -48,6 +48,7 @@
         _resolved = NO;
         _resolving = NO;
         _retryCount = 0;
+        _active = NO;
     }
     return self;
 }
@@ -421,20 +422,6 @@
     return -1;
 }
 
-- (void)parseImageJsonItems:(NSDictionary*)jsonItems
-{
-    NSInteger width = [[jsonItems objectForKey:@"Width"] integerValue];
-    NSInteger height = [[jsonItems objectForKey:@"Height"] integerValue];
-    NSString *pixels = [jsonItems objectForKey:@"Pixels"];
-    
-    UIImage *image = [self parseImagePixels:pixels width:width height:height];
-    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)])
-    {
-        [_delegate didUpdateLivePreview:image];
-    }
-    image = nil;
-}
-
 - (void)settingsValueDidUpdate:(WMServiceModeSetting*)setting forMode:(WMServiceMode*)mode
 {
     if (_connected) {
@@ -455,7 +442,7 @@
     NSString *mode = [jsonImage objectForKey:@"mode"];
     
     __weak UIImage *image = [self parseImagePixels:pixels width:width height:height];
-    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)] && [mode isEqualToString:_activeModeName])
+    if(_active && image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)] && [mode isEqualToString:_activeModeName])
     {
         [_delegate didUpdateLivePreview:image];
     }
