@@ -25,21 +25,19 @@
 
 @implementation WMServicesController
 
-WMServicesController *sharedInstance = nil;
-
 + (WMServicesController*)sharedInstance
 {
-    if (sharedInstance == nil) {
-        sharedInstance = [WMServicesController new];
-    }
+    //  Static local predicate must be initialized to 0
+    static WMServicesController *sharedInstance = nil;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[WMServicesController alloc] init];
+    });
     return sharedInstance;
 }
 
 - (id)init
 {
-    if (sharedInstance != nil) {
-        return sharedInstance;
-    }
     self = [super init];
     if (self)
     {
@@ -48,7 +46,6 @@ WMServicesController *sharedInstance = nil;
         
         [mBonjourController searchForServices];
     }
-    sharedInstance = self;
     return self;
 }
 

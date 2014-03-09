@@ -12,7 +12,7 @@
 #import "LiveViewController.h"
 
 #import "UIImage+ScaledToSize.h"
-#import "UIViewController+CWPopup.h"
+#import "URBMediaFocusViewController.h"
 
 @interface ModesViewController ()
 {
@@ -43,8 +43,6 @@
         
         self.navigationItem.title = _service.name;
     }
-    
-    [self.navigationController dismissPopupViewControllerAnimated:NO completion:nil];
 }
 
 - (void)setService:(WMService *)service
@@ -66,6 +64,7 @@
     cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
     
     [liveViewController updateWithImage:self.livePreviewImage];
+    [[URBMediaFocusViewController sharedInstance] updateCurrentImage:liveViewController.image];
 }
 
 #pragma mark - Table view data source
@@ -166,12 +165,12 @@
 {
     if(recognizer.state == UIGestureRecognizerStateEnded) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:recognizer.view.tag inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-        
+
         WMServiceMode *mode = [_service.modes objectAtIndex:recognizer.view.tag];
         _service.activeModeName = mode.name;
         [_service sendMessage:[NSString stringWithFormat:@"SetModeName_%@", mode.name]];
         
-        [self.navigationController presentPopupViewController:liveViewController animated:YES completion:nil];
+        [[URBMediaFocusViewController sharedInstance] showImage:liveViewController.image fromRect:[recognizer.view convertRect:recognizer.view.frame toView:self.view]];
     }
 }
 

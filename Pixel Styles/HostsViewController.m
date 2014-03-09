@@ -12,8 +12,7 @@
 
 #import "WMServicesController.h"
 #import "WMTableViewCell.h"
-
-#import "UIViewController+CWPopup.h"
+#import "URBMediaFocusViewController.h"
 
 #define __DEBUG__
 #ifdef __DEBUG__
@@ -55,7 +54,6 @@
     [super viewDidAppear:animated];
     
     [self searchForServices];
-    //[mServicesController activateFistConnectedService];
 }
 
 - (IBAction)showAbout:(id)sender
@@ -95,7 +93,7 @@
 - (void)didLostConnectionToService:(WMService *)service
 {
     service.active = NO;
-    [self.navigationController dismissPopupViewControllerAnimated:NO completion:nil];
+    [[URBMediaFocusViewController sharedInstance] dismiss:NO];
     [self.navigationController popToRootViewControllerAnimated:YES];
     [self.tableView reloadData];
     

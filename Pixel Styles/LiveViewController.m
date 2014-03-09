@@ -8,7 +8,7 @@
 
 #import "LiveViewController.h"
 
-#import "UIViewController+CWPopup.h"
+#import "UIImage+ScaledToSize.h"
 #import "WMGridView.h"
 
 @interface LiveViewController ()
@@ -33,17 +33,28 @@
     {
         CGFloat viewHeight = self.view.bounds.size.height / image.size.width * image.size.height;
         
-        localGridView = [[WMGridView alloc] initWithFrame:CGRectMake(0.0, (_imageView.bounds.size.height - viewHeight) / 2.0, _imageView.bounds.size.width, viewHeight)gridSize:image.size];
+        localGridView = [[WMGridView alloc] initWithFrame:CGRectMake(0.0, 0.0, _imageView.bounds.size.width, viewHeight)gridSize:image.size];
         localGridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin;
+        
+        self.view.frame = localGridView.bounds;
+        self.imageView.frame = localGridView.bounds;
         
         [_gridView addSubview: localGridView];
         [_gridView bringSubviewToFront: localGridView];
-        
-        [_imageView.layer setMagnificationFilter:kCAFilterNearest];
-        _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin;
     }
-    
-    _imageView.image = image;
+
+    _imageView.image = [image resizedImage:self.view.bounds.size interpolationQuality:kCGInterpolationNone];
+}
+
+- (UIImage*)image
+{
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    CGContextClipToRect(currentContext, self.view.bounds);
+    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return screenshot;
 }
 
 @end
