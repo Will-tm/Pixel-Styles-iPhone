@@ -25,21 +25,19 @@
 
 @implementation WMServicesController
 
-WMServicesController *sharedInstance = nil;
-
 + (WMServicesController*)sharedInstance
 {
-    if (sharedInstance == nil) {
-        sharedInstance = [WMServicesController new];
-    }
+    //  Static local predicate must be initialized to 0
+    static WMServicesController *sharedInstance = nil;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[WMServicesController alloc] init];
+    });
     return sharedInstance;
 }
 
 - (id)init
 {
-    if (sharedInstance != nil) {
-        return sharedInstance;
-    }
     self = [super init];
     if (self)
     {
@@ -48,7 +46,6 @@ WMServicesController *sharedInstance = nil;
         
         [mBonjourController searchForServices];
     }
-    sharedInstance = self;
     return self;
 }
 
@@ -141,6 +138,8 @@ WMServicesController *sharedInstance = nil;
     if (_searchForServicesWithConnectionBlock) {
         _searchForServicesWithConnectionBlock(service);
     }
+    
+    [self activateFistConnectedService];
 }
 
 - (void)serviceDidNotResolve:(WMService*)service
@@ -189,10 +188,53 @@ WMServicesController *sharedInstance = nil;
     } else {
         [service tryConnect];
     }
+    
+    [self activateFistConnectedService];
 }
 
-#pragma mark - Getters
+- (NSInteger)connectedServicesCount
+{
+    NSInteger result = 0;
+    
+    for (WMService *service in mBonjourController.services) {
+        if (service.connected)
+            result++;
+    }
+    
+    return result;
+}
 
+- (void)activateFistConnectedService
+{
+    BOOL hasActivedOneService = NO;
+    
+    if ([self connectedServicesCount] > 0) {
+        for (WMService *service in mBonjourController.services) {
+            if (service.connected && !hasActivedOneService) {
+                service.active = YES;
+                hasActivedOneService = YES;
+            }
+            else
+                service.active = NO;
+        }
+    }
+}
+
+- (void)activateService:(WMService *)serviceToActivate
+{
+    BOOL hasActivedOneService = NO;
+    
+    if ([self connectedServicesCount] > 0) {
+        for (WMService *service in mBonjourController.services) {
+            if (service == serviceToActivate) {
+                service.active = YES;
+                hasActivedOneService = YES;
+            }
+            else
+                service.active = NO;
+        }
+    }
+}
 
 
 @end

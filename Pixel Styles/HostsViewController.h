@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WMLiveTableViewController.h"
 
-typedef void (^CompletionBlock)(NSArray*);
-
 @interface HostsViewController : WMLiveTableViewController
-
-@property (nonatomic, copy) CompletionBlock completionBlock;
 
 @end

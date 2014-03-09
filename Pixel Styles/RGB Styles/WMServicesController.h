@@ -13,9 +13,7 @@
 @interface WMServicesController : NSObject
 
 @property (nonatomic) id hostsViewControllerDelegate;
-@property (nonatomic, strong, readonly) NSArray *groupsName;
 @property (nonatomic, strong, readonly) NSArray *services;
-@property (nonatomic, strong, readonly) NSArray *selectedServices;
 
 + (WMServicesController*)sharedInstance;
 
@@ -24,11 +22,14 @@
 @property (copy) void(^searchForServicesWithConnectionBlock)(WMService *service);
 @property (copy) void(^searchForServicesWithDisconnectionSBlock)(WMService *service);
 @property (copy) void(^searchForServicesWithErrorBlock)(NSString *service);
+
 - (void)searchForServicesWithCompletion:(void(^)(NSArray *services))completion
                                 arrival:(void(^)(WMService *service))arrival
                              connection:(void(^)(WMService *service))connection
                           disconnection:(void(^)(WMService *service))disconnection
                                   error:(void(^)(NSString *service))error;
+- (void)activateService:(WMService *)serviceToActivate;
+- (void)activateFistConnectedService;
 
 @end
 

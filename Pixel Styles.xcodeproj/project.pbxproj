@@ -11,10 +11,11 @@
 		BE454B7518C1DCCF00A15204 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7418C1DCCF00A15204 /* AboutViewController.m */; };
 		BE454B7818C1DEB300A15204 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */; };
 		BE454B7C18C1F6D100A15204 /* WMLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */; };
-		BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */; };
 		BE4E054318A66242004E0C37 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054218A66242004E0C37 /* LiveViewController.m */; };
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
 		BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054818A68F95004E0C37 /* WMGridView.m */; };
+		BE86837918CC49660000DBBA /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE86837818CC49660000DBBA /* URBMediaFocusViewController.m */; };
+		BE86837D18CC844B0000DBBA /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */; };
 		BEC2E86818C25F1D00067F55 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */; };
 		BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC9967E18B403580031A45F /* SettingsViewController.m */; };
 		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
@@ -94,14 +95,16 @@
 		BE454B7918C1E26E00A15204 /* UIImage+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		BE454B7A18C1F6D100A15204 /* WMLiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLiveTableViewController.h; sourceTree = "<group>"; };
 		BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLiveTableViewController.m; sourceTree = "<group>"; };
-		BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
-		BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
 		BE4E054118A66242004E0C37 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveViewController.h; path = "Pixel Styles/LiveViewController.h"; sourceTree = SOURCE_ROOT; };
 		BE4E054218A66242004E0C37 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveViewController.m; path = "Pixel Styles/LiveViewController.m"; sourceTree = SOURCE_ROOT; };
 		BE4E054418A67801004E0C37 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
 		BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		BE4E054718A68F95004E0C37 /* WMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGridView.h; sourceTree = "<group>"; };
 		BE4E054818A68F95004E0C37 /* WMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGridView.m; sourceTree = "<group>"; };
+		BE86837718CC49660000DBBA /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URBMediaFocusViewController.h; path = "Pixel Styles/URBMediaFocusViewController.h"; sourceTree = "<group>"; };
+		BE86837818CC49660000DBBA /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URBMediaFocusViewController.m; path = "Pixel Styles/URBMediaFocusViewController.m"; sourceTree = "<group>"; };
+		BE86837B18CC844B0000DBBA /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
 		BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerViewController.h; path = "Pixel Styles/RGB Styles/ColorPickerViewController.h"; sourceTree = "<group>"; };
 		BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = "Pixel Styles/RGB Styles/ColorPickerViewController.m"; sourceTree = "<group>"; };
 		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Pixel Styles/RGB Styles/SettingsViewController.h"; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 		BE454B6E18C1DA3200A15204 /* Additional Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE86837A18CC496F0000DBBA /* URBMediaFocusViewController */,
 				BE454B6F18C1DA5C00A15204 /* WMDictionary */,
 				BEF910D11882C26A00F50441 /* SBJSON */,
 				BEF910961882C26A00F50441 /* GCDAsyncSocket */,
@@ -240,6 +244,15 @@
 			path = "Pixel Styles/WMDictionary";
 			sourceTree = "<group>";
 		};
+		BE86837A18CC496F0000DBBA /* URBMediaFocusViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE86837718CC49660000DBBA /* URBMediaFocusViewController.h */,
+				BE86837818CC49660000DBBA /* URBMediaFocusViewController.m */,
+			);
+			name = URBMediaFocusViewController;
+			sourceTree = "<group>";
+		};
 		BEF9104D1882C16500F50441 = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +262,6 @@
 				BEF9109C1882C26A00F50441 /* HostsViewController.m */,
 				BEF911271882D14D00F50441 /* ModesViewController.h */,
 				BEF911281882D14D00F50441 /* ModesViewController.m */,
-				BE4E054118A66242004E0C37 /* LiveViewController.h */,
-				BE4E054218A66242004E0C37 /* LiveViewController.m */,
 				BE454B7318C1DCCF00A15204 /* AboutViewController.h */,
 				BE454B7418C1DCCF00A15204 /* AboutViewController.m */,
 				BEC9967D18B403570031A45F /* SettingsViewController.h */,
@@ -259,6 +270,8 @@
 				BEF910BE1882C26A00F50441 /* TouchViewController.m */,
 				BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */,
 				BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */,
+				BE86837B18CC844B0000DBBA /* ImagePickerViewController.h */,
+				BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */,
 				BEF9109D1882C26A00F50441 /* RGB Styles */,
 				BEF9105F1882C16500F50441 /* Pixel Styles */,
 				BEF910811882C16500F50441 /* Pixel StylesTests */,
@@ -336,8 +349,6 @@
 				BE454B7718C1DEB300A15204 /* UIImage+BoxBlur.m */,
 				BE4E054418A67801004E0C37 /* UIView+Hierarchy.h */,
 				BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */,
-				BE4E053E18A66181004E0C37 /* UIViewController+CWPopup.h */,
-				BE4E053F18A66181004E0C37 /* UIViewController+CWPopup.m */,
 				BEF9112A1882D60100F50441 /* UIImage+ScaledToSize.h */,
 				BEF9112B1882D60100F50441 /* UIImage+ScaledToSize.m */,
 				BEF910921882C26A00F50441 /* NSMutableArray+QueueAdditions.h */,
@@ -365,6 +376,8 @@
 		BEF9109D1882C26A00F50441 /* RGB Styles */ = {
 			isa = PBXGroup;
 			children = (
+				BE4E054118A66242004E0C37 /* LiveViewController.h */,
+				BE4E054218A66242004E0C37 /* LiveViewController.m */,
 				BE454B7A18C1F6D100A15204 /* WMLiveTableViewController.h */,
 				BE454B7B18C1F6D100A15204 /* WMLiveTableViewController.m */,
 				BE4E054718A68F95004E0C37 /* WMGridView.h */,
@@ -573,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE86837918CC49660000DBBA /* URBMediaFocusViewController.m in Sources */,
 				BEF911111882C26A00F50441 /* SBJsonStreamWriter.m in Sources */,
 				BE454B7C18C1F6D100A15204 /* WMLiveTableViewController.m in Sources */,
 				BEF911061882C26A00F50441 /* WMServiceMode.m in Sources */,
@@ -586,7 +600,6 @@
 				BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */,
 				BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */,
 				BEF910E91882C26A00F50441 /* GCDAsyncSocket.m in Sources */,
-				BE4E054018A66181004E0C37 /* UIViewController+CWPopup.m in Sources */,
 				BEF9111B1882C2EE00F50441 /* WMTouchDictionary.m in Sources */,
 				BEF911201882C4E200F50441 /* WMServicesController.m in Sources */,
 				BEF910E81882C26A00F50441 /* UIDevice+Resolutions.m in Sources */,
@@ -611,6 +624,7 @@
 				BEF910EB1882C26A00F50441 /* HostsViewController.m in Sources */,
 				BEF911001882C26A00F50441 /* TextStepperField.m in Sources */,
 				BEF911141882C26A00F50441 /* SBJsonWriter.m in Sources */,
+				BE86837D18CC844B0000DBBA /* ImagePickerViewController.m in Sources */,
 				BE454B7218C1DA5C00A15204 /* WMDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

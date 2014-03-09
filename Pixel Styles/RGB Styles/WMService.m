@@ -42,12 +42,12 @@
         _connecting = NO;
         _delegate = delegate;
         _netService = service;
-        _ip = [NSKeyedArchiver archivedDataWithRootObject:_netService.addresses];
         _name = service.name;
         _jsonParser = [SBJsonParser new];
         _resolved = NO;
         _resolving = NO;
         _retryCount = 0;
+        _active = NO;
     }
     return self;
 }
@@ -188,6 +188,7 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
+    _ip = host;
     if ([_protocolVersion doubleValue] < MIN_PROTOCOL_VERSION)
     {
         NSLog(@"Socket:DidConnectToHost: %@ Port: %hu but protocol version is too old (%@)", host, port,_protocolVersion);
@@ -377,7 +378,7 @@
     
     _activeModeName = [[jsonItems objectAtIndex:0] objectForKey:@"active_mode"];
     _macAddress = [[jsonItems objectAtIndex:0] objectForKey:@"mac_address"];
-    
+    _version = [[jsonItems objectAtIndex:0] objectForKey:@"version"];
     _width = [[[jsonItems objectAtIndex:0] objectForKey:@"width"] integerValue];
     _height = [[[jsonItems objectAtIndex:0] objectForKey:@"height"] integerValue];
     
@@ -387,7 +388,9 @@
     {
         WMServiceMode *_mode = [WMServiceMode new];
         _mode.delegate = self;
+        _mode.service = self;
         _mode.name = [mode objectForKey:@"name"];
+        _mode.port = [[mode objectForKey:@"port"] intValue];
         _mode.ui = (ui_type)[[mode objectForKey:@"ui"] integerValue];
         _mode.image = [self parseImagePixels:[mode objectForKey:@"pixels"] width:_width height:_height];
         
@@ -421,20 +424,6 @@
     return -1;
 }
 
-- (void)parseImageJsonItems:(NSDictionary*)jsonItems
-{
-    NSInteger width = [[jsonItems objectForKey:@"Width"] integerValue];
-    NSInteger height = [[jsonItems objectForKey:@"Height"] integerValue];
-    NSString *pixels = [jsonItems objectForKey:@"Pixels"];
-    
-    UIImage *image = [self parseImagePixels:pixels width:width height:height];
-    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)])
-    {
-        [_delegate didUpdateLivePreview:image];
-    }
-    image = nil;
-}
-
 - (void)settingsValueDidUpdate:(WMServiceModeSetting*)setting forMode:(WMServiceMode*)mode
 {
     if (_connected) {
@@ -455,7 +444,7 @@
     NSString *mode = [jsonImage objectForKey:@"mode"];
     
     __weak UIImage *image = [self parseImagePixels:pixels width:width height:height];
-    if(image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)] && [mode isEqualToString:_activeModeName])
+    if(_active && image != nil && [_delegate respondsToSelector:@selector(didUpdateLivePreview:)] && [mode isEqualToString:_activeModeName])
     {
         [_delegate didUpdateLivePreview:image];
     }

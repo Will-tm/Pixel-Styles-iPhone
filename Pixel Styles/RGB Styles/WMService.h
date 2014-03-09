@@ -26,8 +26,9 @@
 @property (nonatomic) BOOL resolved;
 @property (nonatomic) BOOL resolving;
 @property (nonatomic) id delegate;
-@property (nonatomic, strong, readonly) NSData *ip;
+@property (nonatomic, strong, readonly) NSString *ip;
 @property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *version;
 @property (nonatomic, strong, readonly) NSString *subtitle;
 @property (nonatomic, strong, readonly) NSString *hostType;
 @property (nonatomic, strong, readonly) NSString *hostVersion;
@@ -45,6 +46,7 @@
 @property (nonatomic) NSInteger retryCount;
 @property (nonatomic) NSInteger width;
 @property (nonatomic) NSInteger height;
+@property (nonatomic) BOOL active;
 
 - (id)initWithService:(NSNetService*)service delegate:(id)delegate;
 - (void)tryConnect;

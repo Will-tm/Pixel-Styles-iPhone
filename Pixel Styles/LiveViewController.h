@@ -10,6 +10,8 @@
 
 @interface LiveViewController : UIViewController
 
+@property (nonatomic, readonly, weak) UIImage *image;
+
 - (void)updateWithImage:(UIImage*)image;
 
 @end

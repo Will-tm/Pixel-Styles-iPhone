@@ -30,7 +30,7 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath (context);
-    CGContextSetStrokeColorWithColor(context, [UIColor colorWithWhite:0.15 alpha:1.0].CGColor);
+    CGContextSetStrokeColorWithColor(context, [UIColor colorWithWhite:0.3 alpha:1.0].CGColor);
     CGContextSetLineWidth(context, GRID_WIDTH);
     
     CGContextMoveToPoint(context, 0.0, GRID_WITH_DIV_2);
