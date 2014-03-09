@@ -26,8 +26,9 @@
 @property (nonatomic) BOOL resolved;
 @property (nonatomic) BOOL resolving;
 @property (nonatomic) id delegate;
-@property (nonatomic, strong, readonly) NSData *ip;
+@property (nonatomic, strong, readonly) NSString *ip;
 @property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *version;
 @property (nonatomic, strong, readonly) NSString *subtitle;
 @property (nonatomic, strong, readonly) NSString *hostType;
 @property (nonatomic, strong, readonly) NSString *hostVersion;
