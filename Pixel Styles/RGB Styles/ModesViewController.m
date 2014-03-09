@@ -63,8 +63,10 @@
     
     cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
     
-    [liveViewController updateWithImage:self.livePreviewImage];
-    [[URBMediaFocusViewController sharedInstance] updateCurrentImage:liveViewController.image];
+    if ([URBMediaFocusViewController sharedInstance].isShowing) {
+        [liveViewController updateWithImage:self.livePreviewImage];
+        [[URBMediaFocusViewController sharedInstance] updateCurrentImage:liveViewController.image];
+    }
 }
 
 #pragma mark - Table view data source
@@ -97,6 +99,7 @@
 {
     static NSString *CellIdentifierSettings = @"ModeCellSettings";
     static NSString *CellIdentifierSpectrum = @"ModeCellSpectrum";
+    static NSString *CellIdentifierImagePicker = @"ModeCellImagePicker";
     UITableViewCell *cell;
     
     WMServiceMode *mode = [_service.modes objectAtIndex:indexPath.row];
@@ -104,6 +107,10 @@
     if (mode.ui == uiSpectrum)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSpectrum forIndexPath:indexPath];
+    }
+    else if (mode.ui == uiImagePicker)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierImagePicker forIndexPath:indexPath];
     }
     else
     {
@@ -174,7 +181,6 @@
     }
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -191,7 +197,15 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         WMServiceMode *mode = [_service.modes objectAtIndex:indexPath.row];
-
+        
+        [[segue destinationViewController] setService:_service];
+        [[segue destinationViewController] setMode:mode];
+    }
+    if ([[segue identifier] isEqualToString:@"showImagePickerOfMode"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        WMServiceMode *mode = [_service.modes objectAtIndex:indexPath.row];
+        
         [[segue destinationViewController] setService:_service];
         [[segue destinationViewController] setMode:mode];
     }

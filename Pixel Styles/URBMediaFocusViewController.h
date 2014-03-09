@@ -58,6 +58,8 @@
 
 @property (nonatomic, weak) id<URBMediaFocusViewControllerDelegate> delegate;
 
+@property (nonatomic, readonly) BOOL isShowing;
+
 /**
  *  Convenience method for not using a parentViewController.
  *  @see showImage:fromView:inViewController

@@ -93,7 +93,7 @@
 - (void)didLostConnectionToService:(WMService *)service
 {
     service.active = NO;
-    [[URBMediaFocusViewController sharedInstance] dismiss:NO];
+    [[URBMediaFocusViewController sharedInstance] dismiss:YES];
     [self.navigationController popToRootViewControllerAnimated:YES];
     [self.tableView reloadData];
     
@@ -184,7 +184,7 @@
     // Connected
     if (service.connected) {
         cell.imageView.image = [UIImage imageNamed:@"TcpOk"];
-        cell.detailTextLabel.text = service.subtitle;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - version %@",service.ip, service.version];
 
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

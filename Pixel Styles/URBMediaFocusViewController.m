@@ -256,6 +256,7 @@ static const CGFloat __blurTintColorAlpha = 0.2f;				// defines how much to tint
 	_maxScale = self.scrollView.maximumZoomScale;
 	_lastPinchScale = 1.0f;
 	_hasLaidOut = YES;
+    _isShowing = YES;
 	
 	// register for device orientation changes
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -548,6 +549,8 @@ static const CGFloat __blurTintColorAlpha = 0.2f;				// defines how much to tint
 	if ([self.delegate respondsToSelector:@selector(mediaFocusViewControllerDidDisappear:)]) {
 		[self.delegate mediaFocusViewControllerDidDisappear:self];
 	}
+    
+    _isShowing = NO;
 }
 
 #pragma mark - Gesture Methods
