@@ -61,11 +61,24 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow: _service.activeModeIndex inSection: 0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
-    
-    if ([URBMediaFocusViewController sharedInstance].isShowing) {
-        [liveViewController updateWithImage:self.livePreviewImage];
-        [[URBMediaFocusViewController sharedInstance] updateCurrentImage:liveViewController.image];
+    if (_service.height > 1) {
+        cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
+        
+        if ([URBMediaFocusViewController sharedInstance].isShowing) {
+            [liveViewController updateWithImage:self.livePreviewImage];
+            [[URBMediaFocusViewController sharedInstance] updateCurrentImage:liveViewController.image];
+        }
+    }
+    else {
+        mode.imageView.image = mode.image;
+        
+        for (WMServiceMode *aMode in _service.modes) {
+            if ([_service.activeModeName isEqualToString:aMode.name]) {
+                aMode.imageView.alpha = 1.0;
+            } else {
+                aMode.imageView.alpha = CELL_IMAGE_VIEW_INACTIVE_ALPHA;
+            }
+        }
     }
 }
 
@@ -119,17 +132,33 @@
     
     if ([cell viewWithTag:CELL_IMAGE_VIEW_TAG] == nil)
     {
-        cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
-        cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        cell.imageView.layer.borderWidth = 1.0;
-        cell.imageView.tag = indexPath.row;
+        if (_service.height > 1)
+        {
+            cell.imageView.image = [UIImage getIconOfSize:CGSizeMake(32, 32) icon:[[[UIImage alloc] init] imageScaledToSize:CGSizeMake(32, 32)] withOverlay:mode.image];
+            cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            cell.imageView.layer.borderWidth = 1.0;
+            cell.imageView.tag = indexPath.row;
         
-        [cell.imageView.layer setMagnificationFilter:kCAFilterNearest];
-        cell.imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin;
-        cell.imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCellImageView:)];
-        tapRecognizer.numberOfTouchesRequired = 1;
-        [cell.imageView addGestureRecognizer:tapRecognizer];
+            [cell.imageView.layer setMagnificationFilter:kCAFilterNearest];
+            cell.imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin;
+            cell.imageView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCellImageView:)];
+            tapRecognizer.numberOfTouchesRequired = 1;
+            [cell.imageView addGestureRecognizer:tapRecognizer];
+        }
+        else
+        {
+            mode.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-CELL_IMAGE_VIEW_HEIGH, cell.frame.size.width, CELL_IMAGE_VIEW_HEIGH)];
+            mode.imageView.tag = CELL_IMAGE_VIEW_TAG;
+            mode.imageView.image = mode.image;
+            [cell addSubview:mode.imageView];
+            
+            if ([_service.activeModeName isEqualToString:mode.name]) {
+                mode.imageView.alpha = 1.0;
+            } else {
+                mode.imageView.alpha = CELL_IMAGE_VIEW_INACTIVE_ALPHA;
+            }
+        }
     }
     
     cell.textLabel.text = mode.name;
