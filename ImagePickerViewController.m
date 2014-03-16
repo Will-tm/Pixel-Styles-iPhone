@@ -53,14 +53,17 @@
     [super viewWillAppear:animated];
     
     self.navigationItem.title = _mode.name;
+    
+    [liveViewController updateWithImage:_mode.image];
+    _imageView.image = liveViewController.image;
 }
 
 - (void)didUpdateLivePreview:(NSNotification *)notification
 {
     [super didUpdateLivePreview:notification];
     
-    [liveViewController updateWithImage:self.livePreviewImage];
-    _imageView.image = liveViewController.image;
+    //[liveViewController updateWithImage:self.livePreviewImage];
+    //_imageView.image = liveViewController.image;
 }
 
 - (void)didTapImage:(UITapGestureRecognizer *)recognizer
@@ -106,6 +109,9 @@
 
     NSData *data = [self dataOfCGImage:[img resizedImage:CGSizeMake(_service.width, _service.height) interpolationQuality:kCGInterpolationNone].CGImage];
     [udpSocket sendData:data toHost:_service.ip port:_mode.port withTimeout:0 tag:0];
+    
+    [liveViewController updateWithImage:[img resizedImage:CGSizeMake(_service.width, _service.height) interpolationQuality:kCGInterpolationNone]];
+    _imageView.image = liveViewController.image;
 }
 
 #pragma mark - Table view data source
