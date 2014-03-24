@@ -15,7 +15,7 @@
 		BE4E054618A67801004E0C37 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054518A67801004E0C37 /* UIView+Hierarchy.m */; };
 		BE4E054918A68F95004E0C37 /* WMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4E054818A68F95004E0C37 /* WMGridView.m */; };
 		BE86837918CC49660000DBBA /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE86837818CC49660000DBBA /* URBMediaFocusViewController.m */; };
-		BE86837D18CC844B0000DBBA /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */; };
+		BEB9D2F418E0AAE3007D7269 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D2F318E0AAE3007D7269 /* ImagePickerViewController.m */; };
 		BEC2E86818C25F1D00067F55 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */; };
 		BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC9967E18B403580031A45F /* SettingsViewController.m */; };
 		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
@@ -103,8 +103,8 @@
 		BE4E054818A68F95004E0C37 /* WMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGridView.m; sourceTree = "<group>"; };
 		BE86837718CC49660000DBBA /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URBMediaFocusViewController.h; path = "Pixel Styles/URBMediaFocusViewController.h"; sourceTree = "<group>"; };
 		BE86837818CC49660000DBBA /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URBMediaFocusViewController.m; path = "Pixel Styles/URBMediaFocusViewController.m"; sourceTree = "<group>"; };
-		BE86837B18CC844B0000DBBA /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
-		BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		BEB9D2F218E0AAE3007D7269 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePickerViewController.h; path = "Pixel Styles/ImagePickerViewController.h"; sourceTree = "<group>"; };
+		BEB9D2F318E0AAE3007D7269 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePickerViewController.m; path = "Pixel Styles/ImagePickerViewController.m"; sourceTree = "<group>"; };
 		BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerViewController.h; path = "Pixel Styles/RGB Styles/ColorPickerViewController.h"; sourceTree = "<group>"; };
 		BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = "Pixel Styles/RGB Styles/ColorPickerViewController.m"; sourceTree = "<group>"; };
 		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Pixel Styles/RGB Styles/SettingsViewController.h"; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 				BEF910BE1882C26A00F50441 /* TouchViewController.m */,
 				BEC2E86618C25F1D00067F55 /* ColorPickerViewController.h */,
 				BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */,
-				BE86837B18CC844B0000DBBA /* ImagePickerViewController.h */,
-				BE86837C18CC844B0000DBBA /* ImagePickerViewController.m */,
+				BEB9D2F218E0AAE3007D7269 /* ImagePickerViewController.h */,
+				BEB9D2F318E0AAE3007D7269 /* ImagePickerViewController.m */,
 				BEF9109D1882C26A00F50441 /* RGB Styles */,
 				BEF9105F1882C16500F50441 /* Pixel Styles */,
 				BEF910811882C16500F50441 /* Pixel StylesTests */,
@@ -624,7 +624,7 @@
 				BEF910EB1882C26A00F50441 /* HostsViewController.m in Sources */,
 				BEF911001882C26A00F50441 /* TextStepperField.m in Sources */,
 				BEF911141882C26A00F50441 /* SBJsonWriter.m in Sources */,
-				BE86837D18CC844B0000DBBA /* ImagePickerViewController.m in Sources */,
+				BEB9D2F418E0AAE3007D7269 /* ImagePickerViewController.m in Sources */,
 				BE454B7218C1DA5C00A15204 /* WMDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
