@@ -18,6 +18,7 @@
 		BEB9D2F418E0AAE3007D7269 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D2F318E0AAE3007D7269 /* ImagePickerViewController.m */; };
 		BEC2E86818C25F1D00067F55 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */; };
 		BEC9967F18B403580031A45F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC9967E18B403580031A45F /* SettingsViewController.m */; };
+		BEDA0FA51968A942001B39BF /* Images copy.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDA0FA41968A942001B39BF /* Images copy.xcassets */; };
 		BEF9105A1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
 		BEF9105C1882C16500F50441 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105B1882C16500F50441 /* CoreGraphics.framework */; };
 		BEF9105E1882C16500F50441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105D1882C16500F50441 /* UIKit.framework */; };
@@ -25,7 +26,6 @@
 		BEF910661882C16500F50441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910651882C16500F50441 /* main.m */; };
 		BEF9106A1882C16500F50441 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF910691882C16500F50441 /* AppDelegate.m */; };
 		BEF9106D1882C16500F50441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF9106B1882C16500F50441 /* Main.storyboard */; };
-		BEF910751882C16500F50441 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF910741882C16500F50441 /* Images.xcassets */; };
 		BEF9107C1882C16500F50441 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9107B1882C16500F50441 /* XCTest.framework */; };
 		BEF9107D1882C16500F50441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF910591882C16500F50441 /* Foundation.framework */; };
 		BEF9107E1882C16500F50441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF9105D1882C16500F50441 /* UIKit.framework */; };
@@ -109,6 +109,7 @@
 		BEC2E86718C25F1D00067F55 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = "Pixel Styles/RGB Styles/ColorPickerViewController.m"; sourceTree = "<group>"; };
 		BEC9967D18B403570031A45F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Pixel Styles/RGB Styles/SettingsViewController.h"; sourceTree = "<group>"; };
 		BEC9967E18B403580031A45F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Pixel Styles/RGB Styles/SettingsViewController.m"; sourceTree = "<group>"; };
+		BEDA0FA41968A942001B39BF /* Images copy.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images copy.xcassets"; path = "Pixel Styles/Images copy.xcassets"; sourceTree = "<group>"; };
 		BEF910561882C16500F50441 /* Pixel Styles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Styles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF910591882C16500F50441 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEF9105B1882C16500F50441 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,7 +121,6 @@
 		BEF910681882C16500F50441 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BEF910691882C16500F50441 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BEF9106C1882C16500F50441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BEF910741882C16500F50441 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BEF9107A1882C16500F50441 /* Pixel StylesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel StylesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF9107B1882C16500F50441 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BEF910831882C16500F50441 /* Pixel StylesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixel StylesTests-Info.plist"; sourceTree = "<group>"; };
@@ -256,6 +256,7 @@
 		BEF9104D1882C16500F50441 = {
 			isa = PBXGroup;
 			children = (
+				BEDA0FA41968A942001B39BF /* Images copy.xcassets */,
 				BE454B6E18C1DA3200A15204 /* Additional Classes */,
 				BEF910911882C26A00F50441 /* Additions */,
 				BEF9109B1882C26A00F50441 /* HostsViewController.h */,
@@ -307,7 +308,6 @@
 				BEF910681882C16500F50441 /* AppDelegate.h */,
 				BEF910691882C16500F50441 /* AppDelegate.m */,
 				BEF9106B1882C16500F50441 /* Main.storyboard */,
-				BEF910741882C16500F50441 /* Images.xcassets */,
 				BEF910601882C16500F50441 /* Supporting Files */,
 			);
 			path = "Pixel Styles";
@@ -516,7 +516,7 @@
 		BEF9104E1882C16500F50441 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "RGB Styles";
 				TargetAttributes = {
 					BEF910551882C16500F50441 = {
@@ -558,7 +558,6 @@
 				BEF910FA1882C26A00F50441 /* UIStepperPlus.png in Resources */,
 				BEF910F21882C26A00F50441 /* UIStepperLeft.png in Resources */,
 				BEF910F91882C26A00F50441 /* UIStepperMinus@2x.png in Resources */,
-				BEF910751882C16500F50441 /* Images.xcassets in Resources */,
 				BEF910FC1882C26A00F50441 /* UIStepperRight.png in Resources */,
 				BEF910F51882C26A00F50441 /* UIStepperLeftPressed@2x.png in Resources */,
 				BEF910F31882C26A00F50441 /* UIStepperLeft@2x.png in Resources */,
@@ -568,6 +567,7 @@
 				BEF910F71882C26A00F50441 /* UIStepperMiddle@2x.png in Resources */,
 				BEF910F41882C26A00F50441 /* UIStepperLeftPressed.png in Resources */,
 				BEF910FD1882C26A00F50441 /* UIStepperRight@2x.png in Resources */,
+				BEDA0FA51968A942001B39BF /* Images copy.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,7 +679,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -718,7 +717,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -782,7 +780,6 @@
 		BEF9108F1882C16500F50441 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Styles.app/Pixel Styles";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -805,7 +802,6 @@
 		BEF910901882C16500F50441 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Styles.app/Pixel Styles";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
